@@ -1,0 +1,6 @@
+Londres : 13
+Marseille : 20
+New York : 10
+Paris : 15
+Rome : 20
+Vladivostok : -5

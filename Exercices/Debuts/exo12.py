@@ -1,0 +1,21 @@
+# programme principal -----------------------------------------------
+lstVide = []
+print("lstVide =", lstVide)
+lstVide+=range(0, 1000, 200)
+print("Nouvelle liste lstVide =", lstVide)
+lstFlottant = [0.0]*5
+print("lstFlottant =", lstFlottant, "\n")
+rien = input('"Entree"')
+print("range(4) =", range(4))
+print("range(4, 8) =", range(4, 8))
+print("range(2, 9, 2) =", range(2, 9, 2), "\n")
+rien = input('"Entree"')
+lstElmnt = range(6)
+print("lstElmnt =", lstElmnt)
+rien = input('"Entree"')
+print("Test d'appartenance de l'element 3 :", 3 in lstElmnt)
+print("Test d'appartenance de l'element 6 :", 6 in lstElmnt)
+rien = input('"Entree"')
+print("lstVide =", lstVide)
+print("lstFlottant =", lstFlottant, "\n")
+rien = input('"Entree"')

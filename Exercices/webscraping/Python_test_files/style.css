@@ -1,0 +1,118 @@
+:root {
+  --theme-color:  #055088; //#355c7d;
+  --border-color: #bbbbbb;
+}
+
+* {
+    font-family: "Bitstream Vera Sans", "DejaVu Sans", sans-serif;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    min-height: 100%;
+    //background-color: #fbfbfb;
+}
+
+.centered {
+    height: 100%;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1280px;
+}
+
+#headdiv {
+    color: white;
+    background-color: var(--theme-color);
+    /*background: linear-gradient(#086095, var(--theme-color), #043570);*/
+}
+
+#navdiv {
+    background-color: #fafafa; //#fff6d5;
+    color: var(--theme-color);
+    //font-size: 90%;
+    padding-left: 30px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    box-shadow: 0 2px 2px #dddddd;
+}
+
+#navdiv a {
+    color: var(--theme-color);
+}
+
+.navhome {
+    text-align: center;
+    word-spacing: 80px;
+}
+
+.inline-image {
+    height: 1em;
+}
+
+h1#head {
+    font-size: 220%;
+    font-weight: normal;
+    text-align: center;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 30px;
+}
+
+#maindiv {
+    height: 100%;
+    margin: 0;
+    padding-left: 30px;
+    padding-right: 30px;
+    //background-color: white;
+    text-align: justify;
+    /*border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);*/
+}
+
+h3 {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1em;
+    margin-top: 2em;
+    color: var(--theme-color);
+    font-size: 190%;
+    font-weight: normal;
+    text-align: center;
+    padding-bottom: 0.3em;
+    border-bottom: 4px double var(--border-color);
+}
+
+h2 {
+    margin-bottom: .2em;
+    margin-top: 1em;
+    color: var(--theme-color);
+    font-size: 120%;
+    font-weight: normal;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.main-list {
+    list-style-type: circle;
+    list-style-position: inside;
+    padding-left: 0;
+    font-size: 120%;
+}
+
+.main-list li {
+    margin-bottom: .5em;
+}
