@@ -7,7 +7,7 @@ class Zdico:
         if index in self._dico:         # si l'index est présent dans le dico
             return self._dico[index]
         else:                           # sinon message d'erreur
-            raise ValueError("Erreur d'index!")
+            raise ValueError("Errreur d'index!")
 
     def __setitem__(self, index, val):  # modifie une entrée du dico
         self._dico[index] = val
