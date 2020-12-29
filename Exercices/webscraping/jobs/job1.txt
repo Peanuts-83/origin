@@ -1,7 +1,0 @@
-                    Job name = Développeur Python junior (H/F) 
-                    Company name = 13  
-                    Place =  MARSEILLE 01 
-                    Contract = CDI - Temps plein 
-                    Age of job = Publié il y a 2 jours 
-                    More info = https://candidat.pole-emploi.fr/offres/recherche/detail/8611871 
-                    

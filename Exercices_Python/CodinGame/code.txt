@@ -1,0 +1,21 @@
+recherche ds list of tuples:
+[index for (index, a_tuple) in enumerate(list_of_tuples) 
+if a_tuple[0]=="a"]
+
+join int from list
+a = [1, 2, 3]   
+map(str, a)  
+
+
+
+
+
+', '.join(map(str, myList))
+
+elevators = dict(map(int, input().split()) for y in range(nb_elevators))
+
+to_float = lambda x: float(x.replace(',', '.'))
+lon = to_float(input())
+min_d = float('inf')
+
+

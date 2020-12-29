@@ -1,7 +1,0 @@
-                    Job name = Ingénieur développement back-end H/F 
-                    Company name = 13  
-                    Place =  AIX EN PROVENCE 
-                    Contract = CDI - Temps plein 
-                    Age of job = Publié il y a 2 jours 
-                    More info = https://candidat.pole-emploi.fr/offres/recherche/detail/8598028 
-                    

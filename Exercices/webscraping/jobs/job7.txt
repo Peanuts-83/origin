@@ -1,7 +1,0 @@
-                    Job name = Développeur.euse (C# et C++) (H/F) 
-                    Company name = 83  
-                    Place =  TOURVES 
-                    Contract = CDI - Temps plein 
-                    Age of job = Publié il y a 2 jours 
-                    More info = https://candidat.pole-emploi.fr/offres/recherche/detail/8613191 
-                    
