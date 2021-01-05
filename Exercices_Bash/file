@@ -1,0 +1,6 @@
+
+Command 'commande' not found, did you mean:
+
+  command 'commander' from deb ruby-commander (4.5.0-1)
+
+Try: sudo apt install <deb name>
