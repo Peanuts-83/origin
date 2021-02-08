@@ -1,0 +1,10 @@
+#!/bin/bash
+# udel // user del from batch file
+echo -n "Enter batch file name : "
+read batch
+users=$(cat $batch)
+
+for user in $users
+do
+        userdel -r $user
+done

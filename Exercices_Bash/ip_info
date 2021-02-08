@@ -1,0 +1,5 @@
+#!/bin/bash
+# ip_info network info
+echo "$(ip addr show)"
+echo -e "\nGateway :\n$(ip route show)"
+echo -e "\nDNS server :\n$(cat /etc/resolv.conf | grep server)"

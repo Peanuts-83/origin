@@ -1,0 +1,12 @@
+#!/bin/bash
+# env_info // get env variables
+echo -e "Username : $USER"
+echo -e "\nHome : $HOME"
+echo -e "\nYour history file will ignore $HISTCONTROL"
+echo -e "\nYour terminal session is $TERM"
+echo -e "\nYour \$PATH is : $PATH"
+echo -e "\n\nDistribution is :\n$(cat /etc/*release*)"
+echo -e "\n\nStorages available :\n$(df -h)"
+echo -e "\nCPU info :\n$(lscpu)"
+echo -e "\nMemory : \n$(free)"
+echo -e "\nAll environnement variables resumed here : \n$(env | head -n20)"

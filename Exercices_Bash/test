@@ -1,0 +1,4 @@
+#!/bin/bash
+# test
+echo "dfqsffqfdqfsd n°1"
+echo "qdfsdfsdf n°2">>/dev/null

@@ -1,0 +1,11 @@
+
+#!/bin/bash
+# uadd // add users from batch file
+echo -n "Enter batch file name : "
+read batch
+users=$(cat $batch)
+
+for user in $users
+do
+        useradd $user
+done
