@@ -1,4 +1,3 @@
-
 #!/bin/bash
 # uadd // add users from batch file
 echo -n "Enter batch file name : "

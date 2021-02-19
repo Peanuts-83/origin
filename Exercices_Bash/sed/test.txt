@@ -1,0 +1,5 @@
+1-Voilà un simple fichier de test éèëê
+#2-ceci représente un commentaire
+3-ici_un_possible_nom de fichier éèëê
+4-pareil avec espaces
+5-pareil-avec-tirets

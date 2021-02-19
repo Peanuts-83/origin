@@ -1,0 +1,17 @@
+import os
+
+#os.makedirs('test/test2')
+os.chdir('test')
+print(os.getcwd())
+os.chdir('test2')
+print(os.getcwd())
+#os.mkdir('test3')
+#os.rmdir('test3')
+os.chdir('../../')
+print(os.getcwd())
+print(os.listdir())
+os.chdir('test')
+print(os.getcwd())
+val = os.system('mkdir another_dir')
+#print(val)
+print(os.listdir())

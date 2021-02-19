@@ -1,0 +1,29 @@
+join tele noms
+Ernest 024867-1234 Dept. 389
+Grand 024867-2240 Dept. 311
+Tardif 024867-5341 Dept. 454
+Wagner 024867-1234 Dept. 520
+
+join -a1 -a2 tele noms
+Boileau 024867-6235
+Derrick 024867-1842
+Ernest 024867-1234 Dept. 389
+Frolo Dept. 217
+Grand 024867-2240 Dept. 311
+Herbrant 024867-0256
+Jonathan 024867-7358
+Louis 024867-3237
+Tardif 024867-5341 Dept. 454
+Wagner 024867-1234 Dept. 520
+
+join -a1 -a2 -o 2.3,0,1.2 tele noms 
+ Boileau 024867-6235
+ Derrick 024867-1842
+389 Ernest 024867-1234
+217 Frolo 
+311 Grand 024867-2240
+ Herbrant 024867-0256
+ Jonathan 024867-7358
+ Louis 024867-3237
+454 Tardif 024867-5341
+520 Wagner 024867-1234
