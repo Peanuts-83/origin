@@ -1,0 +1,1 @@
+I write in the file instead of stdout!

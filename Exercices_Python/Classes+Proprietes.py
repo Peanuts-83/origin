@@ -20,6 +20,12 @@ class Personne:
     def effacer(self):                     # effacer msg
         self.surface = ""
 
+    def __repr__(self):
+        return f'{self.nom_complet}, {self.age} ans, résidant à {self.lieu_de_res}.'
+
+    def __getattr__(self, data):
+        return f"{data} n'a pas été attribué à {self.name}."
+
     @property                              # ACCESSEUR : lieu de résidence protégé appelé par une propriété 
     def lieu_de_res(self):
         return self._lieu_de_res
@@ -27,7 +33,7 @@ class Personne:
     @lieu_de_res.setter                    # MUTATEUR : modifie lieu de résidence protégé
     def lieu_de_res(self, nouveau_lieu):
         self._lieu_de_res = nouveau_lieu
-        print(f'{self.prenom} a déménagé à {self._lieu_de_res}')
+        return f'{self.prenom} a déménagé à {self._lieu_de_res}'
 
     @property                               # ACCESSEUR : donne nom complet par prénom + nom
     def nom_complet(self):
@@ -38,10 +44,28 @@ class Personne:
         try:
             prenom, nom = nouveau_nom.split(' ')
         except ValueError:
-            raise ValueError("Entrer un prénom et un nom séparés d'un espace")
+            print("Entrer un prénom et un nom séparés d'un espace")
         else:
             self.prenom = prenom
             self.nom = nom
+
+pers1 = Personne()
+print(pers1.nom_complet)
+print(pers1)
+pers1.lieu_de_res = 'Anger'
+pers1.nom_complet = 'Ange Musso'
+setattr(pers1,'nom','John')
+print(pers1)
+setattr(pers1, 'vehicule', 'piaggio')
+print(pers1.vehicule)
+pers1._code = '1234'
+print(pers1._code)
+print(hasattr(pers1, '_code'))
+print(pers1.__dict__)
+
+
+
+
 
 class Panier:
     def __init__(self):
@@ -56,7 +80,6 @@ class Panier:
 
     def acheter(self, nom_prod, prix):
         self.produits[nom_prod] = prix
-
 
 
 

@@ -11,7 +11,8 @@ print('Today Midnight:', dt.date(), dt.min.time() )
 
 date_str = 'Jan 1 2014 2:43PM'
 date_obj = datetime.datetime.strptime(date_str, '%b %d %Y %I:%M%p')
-print('\n','#STRPTIME:\ndatetime.datetime.strptime:\n(interpretat° of str \'Jan 1 2014 2:43PM\'): ', date_obj, sep='')
+print('\n','#STRPTIME:\ndatetime.datetime.strptime:\n(Automatic interpretat° of str \'Jan 1 2014 2:43PM\'): ', date_obj)
+print('\n','#STRPTIME:\ndatetime.datetime.strptime:\n(Re-arranged interpretat° of str \'Jan 1 2014 2:43PM\'): ', date_obj.strftime('%A the %dst of %B of year %Y, at %Hh%M. '))
 
 
 print('\n#TIMEDELTA\ndatetime.timedelta:\nToday - 5 days:',dt.date() - datetime.timedelta(5))
