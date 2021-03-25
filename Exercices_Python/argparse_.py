@@ -17,3 +17,7 @@ elif args.verbose == 2:
 else:
     print(args.x**args.y)
 
+"""
+$ python3 ./argparse_.py 3 2 -v 2
+3 to the square of 2 is obviously 9!
+"""

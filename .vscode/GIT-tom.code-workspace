@@ -1,0 +1,38 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"python.languageServer": "Microsoft",
+		"python.linting.pylintPath": "$HOME/.local/lib/python3.8/site-packages/pylint",
+		"AREPL.pythonPath": "",
+		"AREPL.envFile": "${workspaceFolder}/.env",
+		"AREPL.pythonOptions": [
+
+
+			"-u"
+		],
+		"python.globalModuleInstallation": true,
+		"terminal.integrated.cursorStyle": "line",
+		"terminal.integrated.cwd": "g:/ReCONVERSION Tom/PYTHON/git/Exercices_Python"
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "Python : Fichier actuel",
+				"type": "python",
+				"request": "launch",
+				"program": "${file}",
+				"console": "integratedTerminal"
+			}
+		]
+	},
+	"extensions": {
+		"recommendations": [
+			"almenon.arepl"
+		]
+	}
+}
