@@ -1,0 +1,12 @@
+{"aggs": {
+    "group_range": {
+        "range": {
+            "field":"fields.rating",
+            "ranges": [
+                {"to": 1.9},
+                {"from": 2, "to": 3.9},
+                {"from": 4, "to": 5.9},
+                {"from": 6, "to": 7.9},
+                {"from": 8}
+              ]
+}}}}

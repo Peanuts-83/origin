@@ -1,0 +1,4 @@
+{"aggs" : {
+    "nb_per_genres" : {
+        "terms" : {"field" : "fields.genres"}
+}}}

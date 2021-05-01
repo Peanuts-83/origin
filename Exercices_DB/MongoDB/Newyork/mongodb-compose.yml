@@ -1,0 +1,30 @@
+version: "3.7"
+services:
+    mongo1:
+        container_name: mongo1
+        image: mongo
+        ports:
+            - 27018:27018
+        restart: always
+        entrypoint: [ "mongod","--port","27018", "--bind_ip_all",   "--replSet", "rs0" ]
+    mongo2:
+        container_name: mongo2
+        image: mongo
+        ports:
+            - 27019:27019
+        restart: always
+        entrypoint: [ "mongod","--port","27019", "--bind_ip_all",   "--replSet", "rs0" ]
+    mongo3:
+        container_name: mongo3
+        image: mongo
+        ports:
+            - 27020:27020
+        restart: always
+        entrypoint: [ "mongod","--port","27020", "--bind_ip_all",   "--replSet", "rs0" ]
+        healthcheck:
+            test: ["CMD","mongo","--host","mongo1","--port","27018",  "--eval", 'rs.initiate( { _id : "rs0",members: [{ _id: 0,     host: "mongo1:27018" },{ _id: 1, host: "mongo2:27019" },{   _id: 2, host: "mongo3:27020" }   ]})']
+            interval: 15s
+            timeout: 10s
+            retries: 3
+            start_period: 10s
+    

@@ -1,0 +1,29 @@
+db.createCollection( "contacts",
+   { validator: { $or:
+      [
+         { phone: { $type: "string" } },
+         { email: { $regex: /@mongodb\.com$/ } },
+         { status: { $in: [ "Unknown", "Incomplete" ] } }
+      ]
+   }
+} )
+
+db.runCommand( {
+   collMod: "contacts",
+   validator: { $jsonSchema: {
+      bsonType: "object",
+      required: [ "phone", "name" ],
+      properties: {
+         phone: {
+            bsonType: "string",
+            description: "must be a string and is required"
+         },
+         name: {
+            bsonType: "string",
+            description: "must be a string and is required"
+         }
+      }
+   } },
+   validationLevel: "moderate"
+   validationAction: "warn"
+} )

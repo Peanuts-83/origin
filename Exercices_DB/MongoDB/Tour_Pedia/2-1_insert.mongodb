@@ -1,0 +1,29 @@
+lieu = {
+"_id" : 1234567890,
+"name" : "Sales & co",
+"reviews" : [{"wordsCount" : 32,"rating" : 5,"language" : "fr",
+"text" : "En apprentissage de savoir"}
+],
+"contact" : {
+"website" : "http://www.tranque.fr",
+"GooglePlaces" : "puget ville",
+"phone" : "0621353932",
+"foursquare" : "tranque.foursquare.com",
+"Booking" : "",
+"Facebook" : "tranque.facebook.fr"
+},
+"description" : {
+"fr" : "tape sur des boutons",
+"de" : "","en" : "","it" : "","nl" : "","es" : ""
+},
+"location" : {
+"coord" : {"coordinates" : [2.286534,50.231568],"type" : "Point"},
+"address" : "rte de mazaugues",
+"city" : "tourves"
+},
+"services" : [ ], "category" : "poi"
+};
+
+db.paris.save(lieu);
+db.paris.find({"_id" : 1234567890}).pretty();
+

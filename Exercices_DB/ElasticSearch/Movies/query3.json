@@ -1,0 +1,6 @@
+{"query": {
+    "bool": {
+        "must": {"match": {"fields.actors":"Harrison Ford"}},
+        "must": {"match": {"fields.directors":"George Lucas"}}}
+    }
+}

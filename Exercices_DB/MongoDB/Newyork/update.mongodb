@@ -1,0 +1,57 @@
+// Pour commencer, nous allons ajouter un commentaire sur un restaurant 
+db.restaurants.update({
+    name: "Wendy'S"
+},{
+    $set: {"comment": ["Nice and delighted to welcome new customers!", "try 2..."]},
+    $set: {"bad key": "gnagnagna!!!!!"}
+});
+
+// Pour supprimer une clé, il suffit de remplacer par l'opérateur $unset.
+db.restaurants.update({
+    name: "Wendy'S"
+},{
+    $unset: {"bad key": 1},
+    $unset: {"comments.1": 1}
+});
+
+// Attribution comment par note (A,B,C)
+db.restaurants.updateMany({
+    "grades.0.grade": "Not Yet Graded"
+    },{
+    $set: {"comments": "Waiting for advice"}
+});
+
+db.restaurants.updateMany({
+    "grades.0.grade": "C"
+    },{
+    $set: {"comments": "Bad..."}
+});
+
+db.restaurants.updateMany({
+    "grades.0.grade": "B"
+    },{
+    $set: {"comments": "Go ahead."}
+});
+
+db.restaurants.updateMany({
+    "grades.0.grade": "A"
+    },{
+    $set: {"comments": "Great!"}
+});
+
+// note attribuée en fonction des scores. Nous allons ajouter 3 points pour un rang A, 1 point pour B, et -1 pour C. Ecriture dans un FOREACH javascript depuis un FIND avec un SAVE.
+db.restaurants.find().forEach(
+    function(rest){
+        total=0;
+        for(i=0; i<rest.grades.length; i++){
+            if(rest.grades[i].grade == "A")              total += 3;
+            else if (rest.grades[i].grade == "B")        total += 1;
+            else                                        total -= 1;
+        rest.note = total;
+        db.restaurants.save(rest);
+        }
+    }
+);
+
+// remove
+db.restaurants.remove({})

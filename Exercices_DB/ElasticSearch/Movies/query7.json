@@ -1,0 +1,8 @@
+{"aggs": {
+    "année": {
+        "terms": {"field":"fields.year", "order": {"note_max":"desc"}},
+        "aggs": {
+            "note_min": {"min": {"field":"fields.rating"}},
+            "note_max": {"max": {"field":"fields.rating"}},
+            "note_moy": {"avg": {"field":"fields.rating"}}}
+}}}

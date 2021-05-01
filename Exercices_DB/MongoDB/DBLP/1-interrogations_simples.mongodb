@@ -1,0 +1,74 @@
+show dbs;
+use DBLP;
+
+/* Import data depuis dblp.json
+mongoimport -d DBLP -c Publis < dblp.json --jsonArray
+*/
+
+// Vérification des 118000 imports
+db.Publis.count());
+
+// Liste de tous les livres (type « Book ») ;
+db.Publis.find({type: "Book"});
+
+// Liste des publications depuis 2011 ;
+db.Publis.find({year: {$gte: 2011}, type: "Article"}, {title:1, year:1, _id:0}).sort({year: -1})
+
+// Liste des livres depuis 2014 ;
+db.Publis.find({type: "Book", year: {$gte: 2014}}, {title:1, year:1, _id:0}).sort({year: 1})
+
+// Liste des publications de l’auteur « Toru Ishida » ;
+db.Publis.find({
+    authors: "Toru Ishida",
+    type: "Article"
+},{
+    title:1, authors:1, year:1, _id:0
+}).sort({year: 1})
+
+// Liste de tous les éditeurs (type « publisher »), distincts ;
+db.Publis.distinct("publisher")
+
+// Liste de tous les auteurs distincts ;
+db.Publis.distinct("authors")
+
+// Trier les publications de « Toru Ishida » par titre de livre et par page de début ;
+db.Publis.aggregate([
+    {$match: {
+        authors: "Toru Ishida"
+    }},
+    {$sort: {
+        booktitle: 1,
+        "pages.start": 1
+    }}
+])
+
+// Projeter le résultat sur le titre de la publication, et les pages ;
+db.Publis.aggregate([
+    {$match: {
+        authors: "Toru Ishida"
+    }},
+    {$sort: {
+        booktitle: 1,
+        "pages.start": 1
+    }},
+    {$project: {
+        title:1, "pages.start": 1, _id: 0
+    }}
+])
+
+// Compter le nombre de ses publications ;
+db.Publis.count({authors: "Toru Ishida"})
+
+// Compter le nombre de publications depuis 2011 et par type ;
+db.Publis.aggregate([
+    {$match: {year: {$gte: 2011}}},
+    {$sort: {year: 1}},
+    {$group: {"_id": "$type", "nbr": {$sum: 1}}}
+])
+
+// Compter le nombre de publications par auteur et trier le résultat par ordre croissant
+db.Publis.aggregate([
+    {$unwind : "$authors" },
+    {$group: {"_id": "$authors", "nbre publications": {$sum: 1}}},
+    {$sort: {"nbre publications": 1}}
+])

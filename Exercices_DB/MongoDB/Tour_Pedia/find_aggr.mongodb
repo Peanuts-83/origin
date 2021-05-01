@@ -1,0 +1,25 @@
+use('tourPedia');
+
+db.paris.distinct("services");
+//Filtrez les lieux par type “accommodation” et service “blanchisserie” ;
+db.paris.find({"category": "accommodation", "services": "blanchisserie"});
+
+//Projetez les adresses des lieux de type "accommodation" ;
+db.paris.find({category: "accommodation"}, {"location.address": 1, _id: 0});
+
+//Filtrez les listes de commentaires (reviews) des lieux, pour lesquelles au moins un commentaire (reviews) est écrit en anglais (en) et a une note (rating) supérieure à 3 (attention, LE commentaire en anglais doit avoir un rating de 3 ou plus) ;
+db.paris.find({reviews: {$elemMatch: {"language": "en", "rating": {$gt: 3}}}});
+
+//Groupez les lieux par catégorie et comptez les ;
+db.paris.aggregate([{
+    $group: {
+        _id: "$category", "total": {$sum: 1}
+    } 
+}]);
+
+//Créez un pipeline d’agrégation pour les lieux de catégorie "accommodation", et donnez le nombre de lieux par valeur de "services".
+db.paris.aggregate([
+    {$match: {category: "accommodation"}},
+    {$unwind: "$services"},
+    {$group: {_id: "$services", "total": {$sum: 1}}}
+]);

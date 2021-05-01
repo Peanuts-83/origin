@@ -1,0 +1,122 @@
+// connexion mongodb -d tourPedia -c paris
+use tourPedia;
+
+
+
+//1.2.1 Donner le nom des lieux dont la catégorie est ”accommodation”
+db.paris.find({"category" : "accommodation"},
+                {"name":1,
+                "_id":0})
+
+//1.2.2 Donner le nom et numéro de téléphone des lieux ayant un numéro de téléphone renseigné ($exists: 1 | $ne: null) ;
+db.paris.find({'contact.phone': {$exists: 1}},
+                {"name":1, "contact.phone":1, "_id":0})
+
+//.2.3 Nom et contacts des lieux ayant ”website” et ”Foursquare” renseignés ;
+db.paris.find({ "contact.website":{$exists: 1}, 
+                "contact.Foursquare":{$exists: 1}},
+                { "name": 1, "contact": 1, "_id": 0 });
+
+//1.2.4 Nom des lieux dont le nom contient le mot ”hotel” (attention à la casse) ;db.paris.aggregate([{
+db.paris.aggregate([
+    {$match: {
+        "name" : /hotel/i
+    }},
+    {$project: {
+        "name": 1, "_id": 0
+    }}
+])
+
+//1.2.5 Nom et services des lieux ayant un service ”chambres non-fumeurs” ;
+db.paris.find(
+    {"services": "chambres non-fumeurs"
+},
+    { "name": 1, "services": 1, "_id": 0  
+})
+
+//1.2.6 Nom et services des lieux dont le premier service est ”chambres non-fumeurs” ;
+db.paris.find(
+    {"services.0": "chambres non-fumeurs"
+},
+    { "name": 1, "services": 1, "_id": 0  
+})
+
+//1.2.7 Nom et services des lieux n’ayant qu’un seul service ”chambres non-fumeurs” ;db.paris.find(
+db.paris.find(
+    {"services.0": "chambres non-fumeurs",
+    "services": {$size: 1}
+},
+    { "name": 1, "services": 1, "_id": 0  
+})
+
+//1.2.8 Nom et services des lieux proposant 5 services ;
+db.paris.find(
+    {"services": {$size: 5}
+},
+    { "name": 1, "services": 1, "_id": 0
+})
+
+//1.2.9 Nom et services des lieux proposant au moins 5 services ;
+db.paris.find(
+    {"services": {$ne: null}, $expr: {$gte: [{$size:"$services"}, 5]}
+},
+    { "name": 1, "services": 1, "_id": 0
+})
+
+//1.2.10 Donner les adresses des lieux de catégorie ”accommodation” avec un service”blanchisserie” ;
+db.paris.find(
+    {"category": "accommodation",
+     "services": "blanchisserie"
+    },
+    {"location.address": 1, "_id": 0
+    }
+)
+
+//1.2.11 Catégories des lieux ayant au moins une note (reviews.rating) de 4 ou plus ;
+db.paris.find(
+    {"reviews.rating": {$gte: 4}
+    },
+    {"category":1, "_id": 0
+    }
+)
+
+//1.2.12 Affiche les sources des commentaires des lieux avec au moins un commentaire ”Facebook” (source) ;
+db.paris.find(
+    {"reviews.source": "Facebook"
+    },
+    {"reviews.source": 1, "_id":0
+    }
+)
+
+//1.2.13 Donner les noms et notes de lieux ayant au moins une note de 4 ou plus, mais aucune note inférieure à 4 ;
+db.paris.find(
+    {"reviews.rating": {
+        $gte: 4,
+        $not: {$lt : 4}}
+    },
+    {"name": 1, "reviews.rating": 1, "_id":0
+    }
+)
+
+//1.2.14 Donner la langue et note des commentaires (reviews) de lieux, contenant au moins un commentaire écrit en anglais avec une note supérieure à 3 (attention, LE commentaire en anglais doit avoir un rang de 3 et plus). Pour filtrer deux critères en même temps sur chaque élément d’une liste : $elemMatch : {...}
+db.paris.find(
+    {"reviews": 
+        {$elemMatch:
+            {"language": "en",
+            "rating": {
+                $gte: 3,
+                $not: {$lt: 3}
+            }} }
+    },
+    {"reviews.language": 1, "reviews.rating": 1, "_id": 0
+    }
+)
+
+//1.2.15 Coordonnées GPS des lieux dont l’adresse contient ”rue de rome”
+db.paris.find(
+    {"location.address": {
+            $regex: "rue de rome", $options: "i"}    
+    },
+    {"location.address": 1, "location.coord.coordinates": 1, "_id": 0 
+    }
+)

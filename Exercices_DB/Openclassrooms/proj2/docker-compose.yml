@@ -1,0 +1,30 @@
+version: '3'
+services:
+    mysql:
+        image: mysql:5.7
+        restart: always
+        volumes: 
+            - mysql_data:/var/lib/mysql
+        environment: 
+            MYSQL_ROOT_PASSWORD: myrootpassword
+            MYSQL_DATABASE: ghost
+            MYSQL_USER: ghostuser
+            MYSQL_PASSWORD: ocrpassword
+            MYSQL_CHARSET: utf8
+    ghost:
+        image: ghost
+        restart: always
+        depends_on: 
+            - mysql
+        ports:
+            - '8080:2368'
+        environment: 
+            NODE_ENV: production
+            url: http://localhost:8080
+            database_client: mysql
+            database_connexion_host: mysql
+            database_connexion_user: ghostuser
+            database_connexion_password: ocrpassword
+            database_connexion_database: ghost
+volumes:
+    mysql_data: {}

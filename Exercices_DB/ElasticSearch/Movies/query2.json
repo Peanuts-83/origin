@@ -1,0 +1,8 @@
+{"query":{
+    "bool": {
+        "should":[ 
+            {"match": {"fields.actors":"Harrison Ford"}},
+            {"match": {"fields.directors":"George Lucas"}}
+        ]
+    }
+}}

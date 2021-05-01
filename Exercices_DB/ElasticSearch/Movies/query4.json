@@ -1,0 +1,9 @@
+{"query": {
+    "bool": {
+        "must": [
+            {"match": {"fields.actors":"Harrison Ford"}},
+            {"match": {"fields.plot":"Jones"}}
+        ],
+        "must_not": {"match": {"fields.plot":"Nazis"}}
+    }
+}}

@@ -1,0 +1,170 @@
+/*L’opérateur aggregate est une séquence d’opérations représentant une chaîne de pipeline entre chaque opérateur
+(le résultat d’un opérateur est donné à l’opérateur suivant). Il s’exprime de la sorte :
+aggregate( [ {$op1}, {$op2}, {$op3} ] ).
+*/
+
+//1.4.1 Donner les adresses des lieux de catégorie ”accommodation” avec un service ”blanchisserie”, projeter le résultat sur le nom et numéro de téléphone (seulement si elle existe), et trier sur le nom ;
+db.paris.aggregate([
+    {$match: {
+        "category": "accommodation",
+        "services": "blanchisserie"
+    }},
+    {$project: {
+        "name": 1,
+        "contact.phone": 1,
+        "_id": 0
+    }},
+    {$sort: {
+        "name": 1
+    }}
+])
+
+//1.4.2 Nombre de lieux de catégorie ”accommodation” et ayant un service ”chambres non-fumeurs” ;
+db.paris.aggregate([
+    {$match: {
+        "category": "accommodation",
+        "services": "chambres non-fumeurs"
+    }},
+    {$group: {
+        "_id": null, "nombre": {$sum: 1}
+    }}
+])
+
+//1.4.3 Donner le nombre de lieux par catégorie ;
+db.paris.aggregate([
+    {$group: {
+        "_id": "$category", "nombre": {$sum: 1}
+    }}
+])
+
+//1.4.4 Pour les lieux de catégorie ”accommodation”, donner le nombre de lieux pour chaque service ;
+db.paris.aggregate([
+    {$match: {
+        "category": "accommodation"
+    }},
+    {$unwind: "$services"
+    },
+    {$group: {
+        "_id": "$services", "nombre": {$sum: 1}
+    }}
+])
+
+//1.4.5 Trier le résultat précédent par ordre décroissant ;
+db.paris.aggregate([
+    {$match: {
+        "category": "accommodation"
+    }},
+    {$unwind: "$services"
+    },
+    {$group: {
+        "_id": "$services", "nombre": {$sum: 1}
+    }},
+    {$sort: {
+        "nombre": -1
+    }}
+])
+
+//1.4.6 Du résultat précédent, n’afficher que les services présents dans plus de 1000 lieux ;
+db.paris.aggregate([
+    {$match: {
+        "category": "accommodation"
+    }},
+    {$unwind: "$services"
+    },
+    {$group: {
+        "_id": "$services", "nombre": {$sum: 1}
+    }},
+    {$match: {
+        "nombre": {$gte: 1000}
+    }},
+    {$sort: {
+        "nombre": -1
+    }}
+])
+
+//1.4.7 Pour chaque nom de lieu de catégorie ”poi”, donner le nombre de commentaires dont la source (reviews.source) est ”Facebook”. Trier par ordre décroissant ;
+db.paris.aggregate([
+    {$match: {
+    "reviews.source": {
+    $exists: "true",
+    $nin: ["Foursquare","GooglePlaces"]}
+    }},
+    {$unwind: "$reviews"
+    },
+    {$group: {
+        "_id": "$name", "nbre": {$sum: 1}
+    }},
+    {$sort: {"nbre": -1, "name": 1}}
+])
+
+//1.4.8 Pour chaque langue d’un commentaire (reviews.language), donner le nombre de commentaires de lieux ayant un service ”chambres non-fumeurs” ;
+db.paris.aggregate([
+    {$match: {
+        "services": "chambres non-fumeurs",
+        "reviews.language": {$exists: true}
+    }},
+    {$unwind: "$reviews"
+    },
+    {$group: {
+        "_id": "$reviews.language", "nbre": {$sum: 1}
+    }},
+    {$sort: {
+        "nbre": -1
+    }}
+])
+
+//1.4.9 Pour chaque nom de lieu de catégorie ”restaurant”, donner la note moyenne et le nombre de commentaires. Trier le résultat par ordre décroissant de moyenne, puis de nombre ;
+db.paris.aggregate([
+    {$match: {
+        "category": "restaurant",
+        "reviews.rating": {$exists: true, $ne: 0}
+    }},
+    {$unwind: "$reviews"
+    },
+    {$group: {
+        "_id": "$reviews.rating", "count": {
+            $sum: 1
+        },
+        "_id": "$name", "avg": {
+            $avg: "$reviews.rating"
+        }
+    }},
+    {$sort: {
+        "avg": -1, "count": -1
+    }}
+])
+
+//1.4.10 Pour chaque catégorie de lieux et langue de commentaire, donner le nombre de commentaires correspondants ;
+db.paris.aggregate([
+    {$match: {
+        "reviews.language": {$exists: true}
+    }},
+    {$unwind: "$reviews"
+    },
+    {$group: {
+        "_id": {"cat": "$category", "rev": "$reviews.language"}, 
+        "nbre": {$sum: 1}
+    }},
+    {$sort: {
+        "_id.cat": 1, "nbre": -1
+    }}
+])
+
+//1.4.11 Pour chaque catégorie de lieux, donner le nombre moyen de commentaires par langue (réutiliser le résultat précédent) ;
+db.paris.aggregate([
+    {$match: {
+        "reviews.language": {$exists: true}
+    }},
+    {$unwind: "$reviews"
+    },
+    {$group: {
+        "_id": {"cat": "$category", "rev": "$reviews.language"}, 
+        "nbre": {$sum: 1}
+    }},
+    {$sort: {
+        "nbre": -1
+    }}
+])
+
+
+//1.4.12 Donner le nombre moyen de commentaires par lieu ;

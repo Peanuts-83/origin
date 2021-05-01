@@ -1,0 +1,32 @@
+// Pour chaque document de type livre, émettre le document avec pour clé « title »
+var mapPublis = function(){
+    emit(this.title, this.authors);
+};
+var redPublis = function(key, values) {
+    return {"articles": values};
+};
+db.Publis.mapReduce(mapPublis, redPublis, {out: {'inline': 1}, query: {type: "Book"}});
+
+
+// Pour chacun de ces livres, donner le nombre de ses auteurs
+// Pour chaque document de type livre, émettre le document avec pour clé « title »
+var mapPublis = function(){
+    emit(this.title, this.authors.length);
+};
+var redPublis = function(key, values) {
+    return {"authors nbr" : values};
+};
+db.Publis.mapReduce(mapPublis, redPublis, {out: {'inline': 1}, query: {type: "Book"}});
+
+
+// Pour chaque livre publié par Springer et composé de chapitres (ayant l’attribut « booktitle »), donner le nombre des chapitres.
+
+var mapFunc = function() {
+    if (this.publisher = "Springer" && this.booktitle)
+        emit(this.booktitle, 1);
+};
+var redFunc = function(book, values){
+    return {book: values};
+};
+db.Publis.mapReduce(mapFunc, redFunc, {out: "result_set", query:{}});
+db.result_set.find({values: {$gte: 2}});

@@ -1,0 +1,15 @@
+// function MAP
+var mapReal = function(){
+    emit(this.director._id, this.title);
+};
+
+// function REDUCE
+var reduceReal = function(dirId, titles){
+    var res = new Object();
+    res.director = dirId;
+    res.films = titles;
+    return res;
+};
+
+// Appel traitement MAP/REDUCE
+db.movies.mapReduce(mapReal, reduceReal, {out: {'inline': 1}, query: {"country": "US"}});

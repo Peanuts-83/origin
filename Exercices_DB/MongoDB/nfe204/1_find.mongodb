@@ -1,0 +1,28 @@
+ // Sur votre base movies,
+
+
+// tous les titres;
+db.movies.find()
+
+// tous les titres des films parus après 2000;
+db.movies.find({year: {$gte: 2000}},{title: 1, _id: 0})
+
+// le résumé de Spider-Man;
+db.movies.find({title: "Spider-Man"},{summary:1, _id:0})
+
+// qui est le metteur en scène de Gladiator?
+db.movies.find({title: "Gladiator"}, {"director.last_name":1, "director.first_name":1, _id:0})
+
+// titre des films avec Kirsten Dunst;
+db.movies.find({"actors.last_name": "Dunst", "actors.first_name": "Kirsten"}, {title:1, _id:0})
+
+// quels films ont un résumé?
+db.movies.find({summary: {$exists: true}}, {title:1, _id:0})
+
+// les films qui ne sont ni des drames ni des comédies.
+db.movies.find({genre: {$nin: ["Drama", "Drame", "Comedy", "Comédie"]}}, {title:1, genre:1, _id:0})
+
+// affichez les titres des films et les noms des acteurs.
+
+
+// dans quels films Clint Eastwood est-il acteur mais pas réalisateur (aide: utilisez l’opérateur de comparaison $ne).
