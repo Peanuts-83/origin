@@ -1,0 +1,25 @@
+#cart {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 15px;
+  background-color: #77be89;
+  background-image: url('../assets/logo.png');
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 75%;
+  color: #185536;
+  padding: 32px;
+}
+
+#cartTitle {
+  font-size:1em;
+  padding: 3%;
+  border-radius: 5px;
+  font-weight: bold;
+  background-color: #9acfb4;
+}
+
+#total {
+  font-weight: bold;
+  font-size: 1.2em;;
+  padding-left: 15%;
+}
