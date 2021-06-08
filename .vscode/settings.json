@@ -14,12 +14,13 @@
     "python.testing.unittestEnabled": false,
     "python.testing.promptToConfigure": false,
     "python.linting.enabled": true,
-    "python.linting.pylintEnabled": true,
+    "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": false,
     "python.globalModuleInstallation": true,
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 500,
     "liveServer.settings.useBrowserPreview": true,
     "browser-preview.format": "png",
-    "liveServer.settings.showOnStatusbar": false
+    "liveServer.settings.showOnStatusbar": false,
+    "python.linting.banditEnabled": true
 }

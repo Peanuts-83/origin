@@ -8,5 +8,6 @@ print('Twinkle, twinkle, little star, \n\tHow I wonder what you are! \n\t\tUp ab
 
 
 # ... placez votre programme ici AVANT les lignes suivantes
-# On met le programme en pause pour éviter qu'il ne se referme (Windows)
+# On met le programme en pause pour ï¿½viter qu'il ne se referme (Windows)
 os.system("pause")
+

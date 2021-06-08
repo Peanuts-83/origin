@@ -1,0 +1,11 @@
+#logo {
+    padding: 1ch;
+    width: 55px;
+}
+header {
+    background-color: #333333;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 75px;
+}
