@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>Book exercices</title>
+</head> 
+<body>
+    <p id ='text'>JavaScript Exercises </p> 
+    <div>
+        <button onclick="doAlert()">Style changer</button>
+    </div>
+    <script>
+        function doAlert(){
+            let id = prompt("Enter id: ");
+            (id == "Admin") ? checkPassword() : (id === "" || id === null) ? alert('Canceled') : alert("I don't know you!");
+            function checkPassword(){
+                let pass = prompt('Enter password: ');
+                (pass == "TheMaster") ? alert('Welcome!') : (pass === '' || pass === null) ? alert('Canceled') :  alert('Wrong password!');
+            }
+        }
+    </script>
+</body>
+</html>
