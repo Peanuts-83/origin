@@ -1,0 +1,28 @@
+let worker = {
+  slow(min, max) {
+    console.log(`Called with ${min} & ${max}`)
+    return min + max; // scary CPU-hogger is assumed
+  }
+};
+
+function cachingDecorator(func) {
+  let cache = new Map();
+  
+  return function(...args) {
+    let key = args.join(',');
+    console.log(key);
+    if (cache.has(key)) return cache.get(key) + ' from cache';
+    
+    let value =func.call(this, ...args);
+    cache.set(key, value);
+    return cache.get(key);
+  }
+}
+
+// should remember same-argument calls
+worker.slow = cachingDecorator(worker.slow);
+
+worker.slow(2,5);
+worker.slow(2,5);
+worker.slow(1,8);
+worker.slow(1,8);

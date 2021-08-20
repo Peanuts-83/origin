@@ -1,0 +1,18 @@
+let users = [
+{ name: "John", age: 20, surname: "Johnson" },
+{ name: "Pete", age: 18, surname: "Peterson" },
+{ name: "Ann", age: 19, surname: "Hathaway" }
+];
+
+console.log('by name classic:')
+users.sort((a,b) => a.name > b.name ? 1 : -1);
+
+function byField(key) {
+  return (a,b) => a[key] > b[key]? 1 : -1;
+}
+console.log('by name func:')
+users.sort(byField('name'));
+console.log('by age func:')
+users.sort(byField('age'));
+console.log('by surname func:')
+users.sort(byField('surname'));

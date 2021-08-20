@@ -1,0 +1,8 @@
+let promise = new Promise(function (resolve, reject) {
+  // after 1 second signal that the job is finished with an error
+  setTimeout(() => reject(new Error('Whoops!')), 3000);
+})
+  .finally(console.log('Loading done, data ready to process.'))
+  .then((result) => console.log(result))
+  .catch((error) => console.log(error))
+  .finally(console.log('Processing done.'));

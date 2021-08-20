@@ -1,0 +1,57 @@
+function* generator(seed) {
+  let val = seed;
+  for (val; ; val++) {
+    yield (val * 16807) % 2147483647;
+  }
+}
+
+let gen = generator(1);
+console.log(gen.next().value);
+console.log(gen.next().value);
+console.log(gen.next().value);
+
+/// sync iterator
+
+let range = {
+  from: 1,
+  to: 5,
+  [Symbol.iterator]() {
+    return {
+      current: this.from,
+      last: this.to,
+      next() {
+        return this.current <= this.last
+          ? { done: false, value: this.current++ }
+          : { done: true };
+      },
+    };
+  },
+};
+
+for (let x of range) {
+  console.log(x);
+}
+
+/// async iterator
+let range2 = {
+  from: 1,
+  to: 5,
+  [Symbol.asyncIterator]() {
+    return {
+      current: this.from,
+      last: this.to,
+      async next() {
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        return this.current <= this.last
+          ? { done: false, value: this.current++ }
+          : { done: true };
+      },
+    };
+  },
+};
+
+asynch() => {
+  for await (let x of range2) {
+    console.log(x);
+  }
+}

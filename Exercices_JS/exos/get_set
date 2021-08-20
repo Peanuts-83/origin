@@ -1,0 +1,21 @@
+let user = {
+  name: 'John',
+  surname: 'Smith',
+  get fullName() {    // getter: accessed as a property of Object
+    return `${this.name} ${this.surname}`;
+  },
+  getFullName() {    // function: accessed as a method of Object
+    return `${this.name} ${this.surname}`;
+  },
+  set fullName(str) {
+    [this.name, this.surname] = str.split(' ');
+  }
+};
+
+user.fullName;
+user.getFullName();
+
+user.fullName = 'Billy Halyday';
+user.name; 
+user.surname;
+console.log('hey, ' + user.fullName);

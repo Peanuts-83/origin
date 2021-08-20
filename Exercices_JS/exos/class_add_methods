@@ -1,0 +1,18 @@
+// add new method to Array prototype
+/*let arr = [];
+
+Array.prototype.isEmpty = function() {return this.length === 0;}
+arr.isEmpty();
+
+let filtArr = arr.filter((x) => x > 5);
+filtArr.isEmpty();*/
+
+// or create new class extended from Array with additional method
+class PowerArray extends Array {
+  isEmpty() {
+    return this.length === 0;
+  }
+}
+
+let arr2 = new PowerArray();
+arr2.isEmpty();

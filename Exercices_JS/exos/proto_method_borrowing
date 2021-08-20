@@ -1,0 +1,40 @@
+let arr = [1,2,3];
+arr.toString()
+
+// modify Array.prototype.toString method!
+Array.prototype.toString = function() {
+  return this.join(' & ');
+}
+arr.toString()
+
+// inheritance of arr (array)
+arr.__proto__ == Array.prototype;
+arr.__proto__.__proto__ == Object.prototype;
+arr.__proto__.__proto__.__proto__ == null;
+
+// inheritance of f (function)
+function f(){}
+f.__proto__ == Function.prototype;
+f.__proto__.__proto__ == Object.prototype;
+f.__proto__.__proto__.__proto__ == null;
+
+// inheritance of n (number)
+let n = 5;
+n.__proto__ == Number.prototype;
+n.__proto__.__proto__ == Object.prototype;
+n.__proto__.__proto__.__proto__ == null;
+
+// inheritance of str (string)
+let str = "hello!";
+str.__proto__ == String.prototype;
+str.__proto__.__proto__ == Object.prototype;
+str.__proto__.__proto__.__proto__ == null;
+
+// method borrowing / join (from Array) needs ordered strings & length -> borrowed to object
+let obj = {
+  0: 'hello',
+  1: 'world',
+  length: 2,
+};
+obj.join = Array.prototype.join;
+obj.join(', ')

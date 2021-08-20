@@ -1,0 +1,21 @@
+// mixin
+let sayHiMixin = {
+  sayHi() {
+    console.log(`Hello ${this.name}`);
+  },
+  sayBye() {
+    console.log(`Bye ${this.name}`);
+  },
+};
+
+class User {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+Object.assign(User.prototype, sayHiMixin);
+
+let Bill = new User('Bill').sayHi();
+let Bob = new User('Bob').sayBye();
+

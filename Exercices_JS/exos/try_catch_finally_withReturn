@@ -1,0 +1,10 @@
+function func() {
+  try {
+    return 1;                  // if return, works last!
+  } catch (err) {
+    /* ... */
+  } finally {
+    console.log('finally');    // finally works first...
+  }
+}
+console.log(func());

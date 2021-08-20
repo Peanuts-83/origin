@@ -1,0 +1,18 @@
+function askPassword(pass, ok, fail) {
+  let password = pass;
+  if (password == 'rockstar') ok();
+  else fail();
+}
+let user = {
+  name: 'John',
+  loginOk() {
+    console.log(`${this.name} logged in`);
+  },
+  loginFail() {
+    console.log(`${this.name} failed to log in`);
+  },
+};
+askPassword('rockstar', user.loginOk.bind(user), user.loginFail.bind(user));
+askPassword('rockstars', user.loginOk.bind(user), user.loginFail.bind(user));
+askPassword('rockstar', () => user.loginOk(), () => user.loginFail());
+askPassword('rockstars', () => user.loginOk(), () => user.loginFail());

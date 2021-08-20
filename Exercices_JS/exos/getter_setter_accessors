@@ -1,0 +1,28 @@
+let user = {
+  name: 'John',
+  surname: 'Smith',
+  get fullName() {
+    return `${this.name} ${this.surname}`;
+  },
+  set fullName(str) {
+    for (let i of str.split(' ')) {
+      if (i.length < 4) {
+        console.log('Name/Surname too short, should be at least 4 characters');
+        return;
+      }
+    }
+    [this.name, this.surname] = str.split(' ');
+    //return `name: ${this.name} surname: ${this.surname}`;
+  },
+  fn() {
+    return `${this.name} ${this.surname}`;
+  }
+};
+
+user.fullName;
+user.fn();
+user.fullName = "tom ranque";
+
+user.name
+user.surname
+user

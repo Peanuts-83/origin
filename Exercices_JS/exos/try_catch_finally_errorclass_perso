@@ -1,0 +1,38 @@
+class ValidationError extends SyntaxError {
+  constructor(message) {
+    super(message);
+    this.name = this.constructor.name;
+  }
+}
+
+class PropertyRequiredError extends ValidationError {
+  constructor(prop) {
+    super("Missing prop >> " + prop + ' <<');
+    this.prop = prop;    
+  }
+}
+
+function readUser(json) {
+  let user = JSON.parse(json);
+  if (!user.name) {
+    throw new PropertyRequiredError('name');
+  }
+  if (!user.age) {
+    throw new PropertyRequiredError('age');
+  }
+  return user;
+}
+
+try {
+  readUser('{"user": 8}');
+} catch(err) {
+  if (err instanceof ValidationError) {
+    console.log("Invalid data: " + err.message);
+    console.log(err.name);
+    console.log(err.prop);
+  } else if (err instanceof SyntaxError) {
+    console.log("JSON syntax error: " + err.message);
+  } else {
+    throw err;
+  }
+}

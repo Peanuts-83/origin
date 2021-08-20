@@ -1,0 +1,11 @@
+async function wait() {
+  //await new Promise((resolve, reject) => setTimeout(reject(new Error('failed!')), 1000));
+  let a = '10'
+  let b = await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+  return a;
+}
+function f() {
+  wait().then((response) => console.log(response)).catch(err => console.log(err));
+}
+
+f();

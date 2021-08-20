@@ -1,0 +1,18 @@
+/// bind this
+let user = {
+  firstName: 'John',
+  sayHi() {
+    console.log(`Hello, ${this.firstName}!`);
+  },
+};
+setTimeout(user.sayHi.bind(user), 1000); // Hello, undefined!
+
+/// bind args
+function mul(a, b) {
+  return a * b;
+}
+let double = mul.bind(null, 2); // null = context(this) / 2 = arg[0]
+double(3);
+
+let triple = mul.bind(null, 3);
+triple(5);

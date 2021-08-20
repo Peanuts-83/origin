@@ -1,0 +1,26 @@
+// Sum all numbers till the given one
+// sumTo(3) = 3+2+1 = 6
+// for loop
+function sumTo1(n) {
+  let sum =0;
+  for (let i = 1; i<=n; i++) {
+    sum += i;
+  }
+  return sum;
+}
+
+// recursion
+function sumTo2(n) {
+  return (n>1) ? n + sumTo(n-1) : n;
+}
+
+// arithmetic progression formula
+function sumTo(n) {
+  return n * (n + 1) / 2;
+}
+
+sumTo(1);
+sumTo(2);
+sumTo(3);
+sumTo(4);
+sumTo(100);

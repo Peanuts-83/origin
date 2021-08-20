@@ -1,0 +1,1 @@
+function newFunction() {alert('newFunction returned!')}

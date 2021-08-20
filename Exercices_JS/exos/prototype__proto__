@@ -1,0 +1,26 @@
+let animal = {
+  eats: true,
+};
+function Rabbit(name) {
+  this.name = name;
+  this.__proto__ = animal;  // == after constructor: Rabbit.prototype = animal;
+}
+//Rabbit.prototype = animal;
+// proto assigned with NEW object only!
+let rabbit = new Rabbit('White Rabbit');
+rabbit.name;
+rabbit.eats;
+rabbit.__proto__ == animal;
+Rabbit.prototype.constructor == Rabbit;
+rabbit.constructor == Rabbit;
+
+Rabbit.prototype = {
+  constructor: animal
+}
+rabbit.name;
+rabbit.eats;
+rabbit.__proto__ == animal;
+Rabbit.prototype.constructor == Rabbit;
+rabbit.constructor == Rabbit;
+
+Rabbit.prototype

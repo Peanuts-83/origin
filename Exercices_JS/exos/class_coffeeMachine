@@ -1,0 +1,44 @@
+class CoffeeMachine {
+  #waterAmount = 0; // the amount of water inside
+  
+  constructor(power) {
+    this.power = power;
+    console.log(`Created a coffee-machine, power: ${power} Watts.`);
+  }
+  
+  get water() {
+    return `Water amount is ${this.#waterAmount} cl.`
+  }
+  
+  set water(value) {
+    if (value > 100) {
+      console.log('Error filling water!');
+      return;
+    } else if (value < 0) {
+      console.log('Negative value forbidden.');
+      return;
+    }
+    this.#waterAmount = value;
+    console.log(`Water amount set to ${value} cl.`);
+  }
+  
+  run() {
+    (this.#waterAmount > 20) ? 
+      console.log(`Coffee ready. Water to ${this.#waterAmount -= 20} cl.`)
+      :
+      console.log(`Not enough water, please refill.`);
+  }
+}
+// create the coffee machine
+let coffeeMachine = new CoffeeMachine(100);
+
+// add water
+//coffeeMachine.water = 200;
+coffeeMachine.water = 50;
+
+// make coffee
+coffeeMachine.run();
+coffeeMachine.run();
+coffeeMachine.run();
+coffeeMachine.water;
+//coffeeMachine.#waterAmount = 100 // ERROR can't change private!

@@ -1,0 +1,25 @@
+let animal = {
+  name: 'Animal',
+  eat() {
+    console.log(`${this.name} eats.`);
+  },
+};
+let rabbit = {
+  __proto__: animal,
+  name: 'rabbit',
+  eat() {
+    // ...bounce around rabbit-style and call parent (animal) method
+    super.eat(); // (*)
+  },
+};
+let longEar = {
+  __proto__: rabbit,
+  name: 'long ear',
+  eat() {
+    // ...do something with long ears and call parent (rabbit) method
+    super.eat(); // (**)
+  },
+};
+longEar.eat(); // Error: Maximum call stack size exceeded
+rabbit.eat();
+animal.eat();

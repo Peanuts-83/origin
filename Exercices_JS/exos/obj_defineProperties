@@ -1,0 +1,31 @@
+let user = {
+  name: 'John',
+  size: 1.8,
+  eyes: 'blue'
+};
+
+user.surname = 'Tom'
+Object.getOwnPropertyDescriptor(user, 'surname');
+
+Object.defineProperty(user, 'surname', {
+  value:'bill',
+  writable: true
+});
+user.surname;
+Object.getOwnPropertyDescriptor(user, 'surname');
+
+Object.defineProperty(user, 'surname', {
+  value: 'billou',
+  writable: false
+});
+user.surname;
+Object.getOwnPropertyDescriptor(user, 'surname');
+
+
+user.surname = "Phil";
+user.surname;
+Object.getOwnPropertyDescriptor(user, 'surname');
+
+let clone = Object.defineProperties({}, Object.getOwnPropertyDescriptors(user));
+clone;
+Object.getOwnPropertyDescriptors(clone);

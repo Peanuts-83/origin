@@ -1,0 +1,21 @@
+function formatDate(date) {
+  let diff = Date.now() - Date.parse(date);
+  let d = date;
+  d = [
+    '0' + d.getDate(),
+    '0' + d.getMonth(),
+    '0' + d.getFullYear(),
+    '0' + d.getHours(),
+    '0' + d.getMinutes()
+  ].map(elt => elt.slice(-2));
+  
+  return (diff < 1*1000) ? 
+    'right now' : (diff < 60*1000) ?
+    `${Math.round(diff /1000)} sec. ago` : (diff < 60*60*1000) ?
+    `${Math.round(diff /60 /1000)} min. ago` : `${d.slice(0,3).join('.')} ${d.slice(-2).join(':')}`;
+}
+formatDate(new Date(new Date - 1));
+formatDate(new Date(new Date - 30 * 1000));
+formatDate(new Date(new Date - 5 *60 *1000));
+formatDate(new Date(new Date - 86400 *1000));
+['2021','08','12'].map(e => e.slice(-2));

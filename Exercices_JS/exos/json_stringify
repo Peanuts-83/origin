@@ -1,0 +1,38 @@
+// string
+let str = 'hello world!';
+strJson = JSON.stringify(str);
+
+// array
+let arr = [1,2,3];
+arrJson = JSON.stringify(arr);
+console.log(arr.length);
+
+// object
+let obj = {
+  str1: str,
+  arr1: arr,
+  qualities: {
+    color: "brown",
+    tail: false,
+    eyes: 2
+  }
+}
+obj;
+let objJson = JSON.stringify(obj);
+objJson;
+console.log('objJson: ' + objJson);
+
+// map
+let map = new Map();
+map.set(obj, 'yes');
+map.set('strong', true);
+let mapJson = JSON.stringify(map);
+mapJson;
+console.log('mapJson: ' + mapJson)
+
+// set
+let set = new Set();
+set.add(obj);
+set.add(str);
+let setJson = JSON.stringify(set);
+console.log('setJson: ' + setJson);

@@ -1,0 +1,19 @@
+// Fibonacci numbers
+// recursive slow one
+function fib1(n) {
+  return (n>1) ? fib(n-1) + fib(n-2): n;
+}
+
+function fib(n) {
+  let [a,b] = [1,1];
+  let c = a + b;
+  for (let i = 1; i<n-2; i++) {
+    a=b;
+    b=c;
+    c=a+b;
+  }
+  return c
+}
+
+fib(8);
+fib(77);

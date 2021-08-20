@@ -1,0 +1,22 @@
+let json = '{ "age": 10 }';
+function readData() {
+  try {
+    let user = JSON.parse(json);
+    //if (!user.name) throw new SyntaxError('name missing');
+    lalala();
+  } catch (err) {
+    if (err instanceof SyntaxError) {
+      console.log('JSON error: ' + err.message);
+    } else {
+      throw err; // throw not SyntaxErrors
+    }
+  } finally {
+    console.log('final code executed anyway!');
+  }
+}
+
+try {
+  readData();
+} catch (err) {
+  console.log('Inded we got it! ' + err);  // get back not SyntaxError!
+}
