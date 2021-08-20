@@ -1,0 +1,182 @@
+@import url("https://fonts.googleapis.com/css?family=Tourney|Lato|Reenie Beanie");
+
+:root {
+  --color1: rgb(230, 219, 203);
+  --color2: rgb(151, 0, 0);
+  --color3: rgb(160, 160, 160);
+  --color4: rgb(158, 218, 61);
+  --color5: rgb(88, 16, 16);
+}
+
+body {
+  background: var(--color1);
+}
+
+/**** TITLES ****/
+h1,
+h2 {
+  font-family: Tourney;
+  color: red;
+}
+
+h3 {
+  font-family: Lato;
+  font-style: italic;
+  color: red;
+}
+
+h1 {
+  font-size: max(10vw, 36px);
+  margin: 10px;
+}
+
+h2 {
+  font-size: max(4vw, 24px);
+  margin: 7px;
+}
+
+h3 {
+  font-size: max(6vw, 36px);
+  margin: 7px;
+}
+
+/**** TEXT ****/
+p {
+  font-family: Lato;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/**** WRAPPER ****/
+.wrapper {
+  display: grid;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+/**** NAVBAR ****/
+#navbar {
+  background-color: var(--color2);
+  display: flex;
+  position: fixed;
+  justify-content: flex-start;
+  top: 0;
+  left: 0;
+  box-shadow: 0 2px 0 rgba(255, 255, 255, 0.4);
+  padding: 5px;
+  width: 100%;
+  height: 35px;
+}
+
+#navbar > ul > li {
+  display: inline;
+  float: left;
+  margin-right: 10vw;
+}
+
+#navbar > ul > li > a {
+  font-family: Lato;
+  font-size: 18;
+  font-weight: 600;
+  color: var(--color1);
+  text-decoration: none;
+}
+
+#navbar > ul > li > a:hover {
+  font-weight: 100;
+}
+
+/**** WELCOME ****/
+#welcome-section {
+  background-color: var(--color2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 30px;
+}
+
+/**** PROJECTS ****/
+#projects {
+  background-color: var(--color3);
+  display: grid;
+  grid-template-rows: 1fr auto 1fr;
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 45px;
+  text-align: center;
+}
+
+.profile_link,
+.project-tile {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8rem, 3fr));
+  grid-auto-rows: 1fr;
+  margin: 15px;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile_link > *:first-child,
+.project-tile > *:first-child {
+  grid-row: 1 / 1;
+  grid-column: 1 / 1;
+}
+
+.files {
+  display: grid;
+}
+
+.files > * {
+  grid-area: 1/1/-1/-1;
+} 
+
+.a-img {
+  opacity: 1;
+}
+
+.files:hover .a-img {
+  opacity: 0.3;
+}
+
+.a-txt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  filter: invert(0); /* antibug si effet sur a-img */
+  transition: opacity 0.8s;
+  font-family: Lato;
+  font-size: 16px;
+  font-weight: 600;
+  color: black;
+}
+
+.a-txt:hover {
+  opacity: 1;
+}
+
+/**** PROFILE ****/
+#profile-link {
+  background-color: var(--color4);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 30px;
+}
+
+a {
+  text-decoration: none;
+}
+
+@media (inverted-colors: inverted) {
+  p {
+    background: black;
+    color: yellow;
+  }
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!--  Meta  -->
+    <meta charset="UTF-8" />
+    <title>Ender Survey Form</title>
+
+    <!--  Styles  -->
+    <link rel="stylesheet" href="styles/index.css" />
+</head>
+
+<body>
+    <div id="main">
+        <div class="container">
+            <div class="header">
+                <h1 id="title">Ender Survey Form</h1>
+                <hr>
+                <p id="description"> Please take a few minutes to help us improve our products</p>
+            </div>
+            <div><img class="image" src="img/Ender-6-_-1_1024x1024@2x.jpg" alt="Ender 3 printer"></div>
+            <div class="form">
+                <form id="survey-form" onsubmit="alert('done!)">
+                    <label id="name-label">
+                        <input id="name" width="40" placeholder="Your name" required>
+                    </label><br>
+                    <label id="email-label">
+                        <input id="email" type="email" placeholder="Your e-mail" required>
+                    </label><br>
+                    <label id="number-label">
+                        <input id="number" type="number" placeholder="Your age" required>
+                    </label>
+                    <br>
+                    <br><br>
+                    Would you recommend Ender printer to a friend?
+                    <br><br>
+                    <label for="recommendation" required>
+                        <input type="radio" value="Definitely" name="recommendation"> Definitely<br>
+                        <input type="radio" value="Maybe" name="recommendation"> Maybe<br>
+                        <input type="radio" value="Not sure" name="recommendation"> Not sure<br>
+                    </label>
+                    <br><br>
+                    <br>
+                    What is your favorite Ender printer model?
+                    <br><br>
+                    <label for="favorite">
+                        <select name="model" id="model" required>
+                            <option value="">Select a model</option>
+                            <option value="Ender3">Ender3</option>
+                            <option value="Ender3 Pro">Ender3 Pro</option>
+                            <option value="Ender5">Ender5</option>
+                            <option value="Ender6 Cube">Ender6 Cube</option>
+                        </select>
+                    </label>
+                    <br><br>
+                    <br>
+                    What kind of print jobs are you interrested in?
+                    <br><br>
+                    <label for="types-of-jobs">
+                        <input id="Stereolithography" value="Stereolithography" type="checkbox"
+                            name="types">Stereolithography<br>
+                        <input id="Selective Laser Sintering" value="Selective Laser Sintering" type="checkbox"
+                            name="types">Selective Laser Sintering<br>
+                        <input id="Fused Deposition Modeling" value="Fused Deposition Modeling" type="checkbox"
+                            name="types">Fused Deposition Modeling<br>
+                        <input id="Digital Light Process" value="Digital Light Process" type="checkbox"
+                            name="types">Digital Light Process<br>
+                        <input id="Multi Jet Fusion" value="Multi Jet Fusion" type="checkbox" name="types">Multi Jet
+                        Fusion<br>
+                        <input id="Direct Metal Laser Sintering" value="Direct Metal Laser Sintering" type="checkbox"
+                            name="types">Direct Metal Laser Sintering
+                    </label><br>
+                    <br>
+                    <br>
+                    Add any comment...
+                    <br>
+                    <textarea rows="4" cols="40" id="comments" value="comments">
+                        </textarea>
+                    <br>
+                    <br>
+                    <div>
+                        <button type="submit" id="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <!-- Scripts -->
+            <script src="script/index.js"/>
+        </div>
+</body>
+
+</html>

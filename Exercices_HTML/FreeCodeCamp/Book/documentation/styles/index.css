@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css?family=Passion One|Noto Serif");
+
+:root {
+  --color1: #d8d8d8;
+  --color2: rgb(173, 173, 173);
+  --color3: rgb(102, 102, 102);
+  --color4: rgb(46, 46, 46);
+  --color5: rgb(88, 16, 16);
+}
+
+body {
+  background: var(--color1);
+  display: grid;
+  grid-template-columns: 250px auto;
+  grid-template-areas: "navbar main-doc";
+  width: 95%;
+}
+
+/**** NAVBAR + MAIN ****/
+#navbar {
+  position: fixed;
+  top:0;
+  left:0;
+  width: 250px;
+  height: 100%;
+  background-color: var(--color2);
+  grid-area: navbar;
+  font-family: Passion One;
+  color: var(--color5);
+  font-size: 36px;
+  text-align: right;
+  padding: 10px;
+}
+
+#main-doc {
+  grid-area: main-doc;
+  padding: 15px;
+  margin: 20px;
+}
+
+.nav-link {
+  font-family: Passion One;
+  color: var(--color4);
+  font-size: 24px;
+  text-decoration: none;
+}
+
+#navbar > ul {
+  list-style: none;
+}
+
+/**** SMALL SCREENS ****/
+@media (max-width: 815px) {
+  body {
+    background: var(--color2);
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-areas: "main-doc";
+    width: 98%;
+  }
+
+  #navbar {
+    display: none;
+  }
+}
+
+/**** TITLES ****/
+h1,
+h2,
+h3,
+h4 {
+  font-family: Passion One;
+  color: var(--color4);
+}
+
+h1 {
+  font-size: max(10vw, 64px);
+  margin-bottom: -40px;
+}
+
+h2 {
+  font-size: max(4vw, 24px);
+  margin-bottom: -5px;
+}
+
+h3 {
+  font-size: max(2vw, 18px );
+  color: var(--color5);
+}
+
+/**** TEXT ****/
+ul,
+p {
+  font-family: Noto Serif;
+  font-size: 16px;
+  color: black;
+}
+
+p::first-letter {
+  font-family: Noto Serif;
+  font-size: 36px;
+  color: var(--color4);
+}

@@ -1,0 +1,13 @@
+{
+  "name": "blowjohn",
+  "version": "1.0.0",
+  "description": "first sass try",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/main.scss:./public/css/style.css --style expanded",
+    "prefix": "postcss ./public/css/style.css --use autoprefixer -d ./public/css/prefixed/"
+  },
+  "author": "tom",
+  "license": "ISC",
+  "browserslist": "last 4 versions"
+}
