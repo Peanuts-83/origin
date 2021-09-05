@@ -16,8 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS call -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css" />
     <!-- Font Awesome call -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -35,43 +34,44 @@
 <body>
 
     <!-- NAVBAR -->
-    <div class="container-fluid">
-        <div class="row border border-default bg-info">
-            <nav class="col navbar navbar-expand-md navbar-dark">
-                <a class="navbar-brand" href="index.html">
-                    <img src="img/logo.png" height="30" alt="Site logo">
-                    Info School
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div id="navbarContent" class="collapse navbar-collapse">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Accueil</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="cours.html">Cours</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Equipe</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contacts</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
+    <div class="container-fluid"">
+        <div class=" bg-info fixed-top">
+        <nav class="col navbar navbar-expand-md navbar-dark">
+            <a class="navbar-brand" href="index.html">
+                <img src="img/logo.png" height="30" alt="Site logo">
+                Info School
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navbarContent" class="collapse navbar-collapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Accueil</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="cours.html">Cours</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Equipe</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contacts</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </div>
-    <p><a class="back-nav" href="cours.html">Cours ></a>Créez des animations CSS</p>
-    <div class="container-fluid mx-auto">
 
-
-        <div class="row">
+    <div class="container-fluid mx-auto" id="content">
+        <div class=" back-nav">
+            <p><a href="cours.html">Cours</a> > Créez des animations CSS</p>
+        </div>
+        <div class="row align-top">
             <!-- TOAST -->
-            <div class="col">
-                <div class="toast" data-autohide="false">
+            <div class="col-12 col-sm-6 mt-3">
+
+                <div class="toast w-100" data-autohide="false">
                     <div class="toast-header  bg-warning">
                         <strong class="mr-auto text-white">Prérequis</strong>
                         <small class="text-muted">important!</small>
@@ -84,12 +84,12 @@
                 </div>
             </div>
             <!-- ALERT -->
-            <div class="col">
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <strong class="alert-heading">Attention!</strong>
-                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                        <small>Tout cours commencé doit être terminé sous peine de
-                            décapitation du petit orteil gauche.</small>
+            <div class="col-12 col-sm-6 ">
+                <div class="alert alert-danger alert-dismissible fade show mt-3 w-100" role="alert">
+                    <strong class="alert-heading">Attention!</strong>
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <small>Tout cours commencé doit être terminé sous peine de
+                        décapitation du petit orteil gauche.</small>
                 </div>
             </div>
         </div>
@@ -139,7 +139,7 @@
         </form>
 
         <!-- FOOTER -->
-        <div class="row bg-light mt-3" id="footer">
+        <div class="row bg-light mt-3 pt-3" id="footer">
             <div class="col">
                 <ul class="list-inline text-center p text-secondary">
                     <a href="#">

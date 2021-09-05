@@ -8,8 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS call -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css" />
     <!-- Font Awesome call -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -20,41 +19,39 @@
 </head>
 
 <body>
-    <div class="bg-info">
+    <div class="container-fluid">
         <!-- NAVBAR -->
-        <div class="container-fluid ">
-            <div class="row ">
-                <nav class="col navbar navbar-expand-md navbar-dark">
-                    <a class="navbar-brand" href="index.html">
-                        <img src="img/logo.png" height="30" alt="Site logo">
-                        Info School
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div id="navbarContent" class="collapse navbar-collapse">
-                        <ul class="navbar-nav">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="index.html">Accueil</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="cours.html">Cours</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Equipe</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Contacts</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
+        <div class="bg-info fixed-top">
+            <nav class="navbar navbar-expand-md navbar-dark">
+                <a class="navbar-brand" href="index.html">
+                    <img src="img/logo.png" height="30" alt="Site logo">
+                    Info School
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div id="navbarContent" class="collapse navbar-collapse">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.html">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="cours.html">Cours</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Equipe</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contacts</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         </div>
     </div>
     <!-- CONTENT -->
-    <div class="container-fluid">
-        <div class="row" id="content">
+    <div class="container-fluid" id="content">
+        <div class="row mt-3">
             <!-- HERO -->
 
             <!-- old JUMBOTRON
@@ -100,9 +97,9 @@
             <div class="container mx-auto col-12 col-md-10 col-lg-8">
                 <!-- CARDS -->
                 <div class="row">
-                    <div class="col-12 col-sm-4">
-                        <a href="#" class="card-link">
-                            <div class="card border-secondary m-3 shadow" id="card1">
+                    <div class="col-12 col-sm-4 mb-3">
+                        <a href="./cours.html" class="card-link">
+                            <div class="card border-secondary m-3 shadow-lg" id="card1">
                                 <img class="card-img-top" src="img/certificate.png" alt="certif img">
                                 <div class="card-body ">
                                     <h4 class="card-title text-center">Devenez diplômé</h4>
@@ -113,9 +110,9 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-12 col-sm-4">
-                        <a href="#" class="card-link">
-                            <div class="card border-secondary m-3  shadow" id="card2">
+                    <div class="col-12 col-sm-4 mb-3">
+                        <a href="./cours.html" class="card-link">
+                            <div class="card border-secondary m-3  shadow-lg" id="card2">
                                 <img class="card-img-top" src="img/instruction.png" alt="instruction img">
                                 <div class="card-body">
                                     <h4 class="card-title text-center">Formateurs de qualité</h4>
@@ -125,9 +122,9 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-12 col-sm-4">
-                        <a href="#" class="card-link">
-                            <div class="card border-secondary m-3  shadow" id="card3">
+                    <div class="col-12 col-sm-4 mb-3">
+                        <a href="./cours.html" class="card-link">
+                            <div class="card border-secondary m-3  shadow-lg" id="card3">
                                 <img class="card-img-top" src="img/job.png" alt="job img">
                                 <div class="card-body">
                                     <h4 class="card-title text-center">Un travail garanti</h4>
@@ -143,7 +140,7 @@
             </div>
         </div>
         <!-- FOOTER -->
-        <div class="row bg-light mt-3" id="footer">
+        <div class="row bg-light mt-3 pt-3" id="footer">
             <div class="col">
                 <ul class="list-inline text-center p text-secondary">
                     <a href="#">
@@ -171,19 +168,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <script>
-        $(document).ready(function () {
-            $("#card1").mouseenter(function () {
-                $("#card1").effect("bounce", { distance: 15 });
-            });
-            $("#card2").mouseenter(function () {
-                $("#card2").effect("bounce", { distance: 15 });
-            });
-            $("#card3").mouseenter(function () {
-                $("#card3").effect("bounce", { distance: 15 });
-            });
-        });
-    </script>
+
       
 </body>
 

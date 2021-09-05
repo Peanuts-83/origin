@@ -1,50 +1,10 @@
-.row {
+/*.row {
     margin-top: 0;
-}
+}*/
 
-.navbar {
+/*.navbar {
     margin: 0;
     padding: 0;
-}
-
-.back-nav {
-    font-size: 10;
-    font-weight:600;
-    padding: 15px;
-}
-
-.back-nav:hover {
-    font-weight: 100;
-    text-decoration: none;
-}
+}*/
 
 
-.jumbotron {
-    height: 25vw;
-    min-height: 250px;
-    background-image: url("img/website-programming-code-free-photo-2210x1473.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: white;
-}
-
-.card-body {
-    text-align: center;
-}
-
-.toast {
-    min-width: 350px;
-}
-
-#txt {
-    padding: 1em;
-}
-
-a{
-    color: grey;
-}
-
-a > .card:hover {
-    border-width: 3px;
-    background-color:lightgray;
-}

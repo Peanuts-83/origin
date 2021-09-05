@@ -1,0 +1,38 @@
+html,
+body {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  margin: 1em;
+  background-color: lightblue;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.barre {
+  fill: lightcoral;
+}
+
+.barre:hover {
+  fill: darkorange;
+  stroke-width: 2px;
+}
+
+.barre:active {
+  fill: darkred;
+}
+
+text {
+  fill: grey;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 600;
+}
+
+svg {
+  margin: 3px;
+  border: solid 1px white;
+}
+
+.hidden {
+  display: false;
+}

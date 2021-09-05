@@ -1,0 +1,15 @@
+.red {
+    background-color: red;
+  }
+
+  .blue {
+    background-color: blue;
+  }
+
+  .italic {
+    font-style: italic;
+  }
+
+  #paroles {
+    padding: 0.5em 1em;
+  }

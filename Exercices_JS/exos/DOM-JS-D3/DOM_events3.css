@@ -1,0 +1,16 @@
+.refrain {
+    font-style: italic;
+  }
+
+  .hook {
+    font-size: 0.8rem;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  #paroles,
+  footer {
+    padding: 0.5em 1em;
+  }

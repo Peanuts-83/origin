@@ -1,0 +1,40 @@
+.navbar {
+    margin: 0;
+    padding: 0;
+}
+
+#content {
+    margin-top: 15px;
+}
+
+.back-nav {
+    font-size: 10;
+    font-weight:600;
+    margin-top: 25px;
+}
+
+.jumbotron {
+    height: 25vw;
+    min-height: 250px;
+    background-image: url("img/website-programming-code-free-photo-2210x1473.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+
+.card {
+    height: 100%;
+}
+
+.card-body {
+    text-align: center;
+    padding: 5px;
+}
+
+.card:hover {
+    border-width: 2px;
+}
+
+#txt {
+    padding: 1em;
+}
