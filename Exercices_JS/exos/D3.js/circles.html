@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <style>
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class='circles'></div>
+    <!-- Ici on utilise d3js -->
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script>
+        const circles = d3.select('.circles').append('svg')
+            .style('background', 'grey')
+            .attr('viewBox', '0 0 200 100')
+            .attr('preserveAspectRatio', 'xMinYMin')
+            .append('g')
+            .attr('id', 'circles');
+        const data = ['A', 'B', 'C'];
+        let width = 200,
+            height = 100,
+            x = width / 3;
+
+        const circle = d3.select('#circles')
+            .selectAll('circle')
+            .data(data)
+            .enter()
+            .append('circle')
+            .attr('cx', (d, i) => width / 3 * i + 30)
+            .attr('cy', height / 2)
+            .attr('r', 10)
+            .attr('id', (d, i) => `circle${i}`);
+        circle.style('fill', 'red');
+        let posCircle0 = d3.select('#circle0').attr('cx');
+        d3.select('#circle0')
+            .attr('cx', +posCircle0 + 20)
+            .style('fill', 'blue');
+
+        const newRadius = [5, 10, 15];
+        d3.select('.circles')
+            .selectAll('circle')
+            .data(newRadius)
+            .attr('r', d => d);
+
+
+
+
+        /* BARCHART */
+        //Import data from CSV with promise(data, error).then().catch()
+        let dataCsv = [];
+        d3.csv('d3.csv', function (d) {
+            return { country: d.country, gold: +d.gold, silver: +d.silver };
+        }).then(function (data) {
+            data.forEach(d => { dataCsv.push(d); console.log(d); });
+            d3.select('body')
+                .insert('div', 'script').classed('barChart', true)
+                .append('svg').attr('viewBox', '0 0 200 140').attr('preserveAspectRatio', 'xMinYMin')
+                .append('g').attr('id', 'barChart');
+
+            d3.select('.barChart').insert('text', 'svg').text('Gold production 2019').style('fill', 'orange')
+
+            const barChart = d3.select('#barChart');
+
+            barChart.selectAll('text')  //COUNTRY
+                .data(dataCsv)
+                .enter()
+                .append('text')
+                .text((d) => d.country)
+                .attr('x', 2)
+                .attr('y', (d, i) => i * 20 + 5)
+                .style('fill', 'red').style('font-size', 6).style('font-weight', 'bold');
+
+            barChart.selectAll('goldTons')  //GOLD tons
+                .data(dataCsv)
+                .enter()
+                .append('rect')
+                .attr('x', 0)
+                .attr('y', (d, i) => i * 20 + 5)
+                .attr('width', d => d.gold)
+                .attr('height', 5)
+                .attr('fill', 'lightblue');
+
+            barChart.selectAll('silverTons') //SILVER tons
+                .data(dataCsv)
+                .enter()
+                .append('rect')
+                .attr('x', 0)
+                .attr('y', (d, i) => i * 20 + 10)
+                .attr('width', d => d.silver)
+                .attr('height', 5)
+                .attr('fill', 'lightgreen');
+
+            barChart.selectAll('goldTxt')   // GOLD txt
+                .data(dataCsv)
+                .enter()
+                .append('text')
+                .text(d => d.gold + ' Tons of GOLD')
+                .attr('x', 2)
+                .attr('y', (d, i) => i * 20 + 10)
+                .style('font-size', 6).style('fill', 'blue');
+
+            barChart.selectAll('silverTxt') // SILVER txt
+                .data(dataCsv)
+                .enter()
+                .append('text')
+                .text((d) => d.silver + ' Tons of SILVER')
+                .attr('x', 2)
+                .attr('y', (d, i) => i * 20 + 15)
+                .style('fill', 'green').style('font-size', 6);
+
+
+            barChart.attr('transform', 'translate(0,3)');
+
+        }).catch(function (err) { console.log(err); });
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Mon titre</title>
+    <script type="text/javascript" src="lib.js"></script>
+</head>
+
+<body>
+    <h1 onClick="showHxContent(1)">Partie 1</h1>
+    <div id="title1" style="display:true">
+        <p>Mon premier paragraphe</p>
+        <p>Mon second paragraphe</p>
+    </div>
+    <h1 onClick="showHxContent(2)">Partie 2</h1>
+    <div id="title2" style="display:true">
+        <p>Mon premier paragraphe</p>
+        <p>Mon second paragraphe</p>
+    </div>
+    <p>
+        <input type="submit" value="Masquer" onClick="hideAllDivs()" />
+    </p>
+    <p>
+        Titre n°: <input type="text" id="title" />
+        <input type="submit" value="Afficher" onClick="alertTitle()" />
+        <input type="submit" value="Delete" onClick="deleteTitle()" />
+        <input type="submit" value="Define" onClick="defineTitle()" />
+    </p>
+    <script>
+        function showHxContent(n){
+            alert(document.getElementsByTagName('h1')[n-1].innerHTML);
+        }
+        function hideAllDivs(){
+            let divs = document.querySelectorAll('div');
+            divs.forEach(d => {
+                d.style.display = "none"});
+        }
+        function alertTitle(){
+            let val = document.getElementById('title').value;
+            alert(document.getElementById('title'+val).previousElementSibling.innerHTML);
+        }
+        function deleteTitle(){
+            let val = document.getElementById('title').value;
+            document.getElementById('title'+val).previousElementSibling.remove();
+        }
+        function defineTitle(){
+            const val = document.getElementById('title').value;
+            const titleList = document.querySelectorAll('h1').forEach(d => d.innerHTML.substr(d.innerHTML.length, 1));
+            alert(titleList);
+            const nd = document.getElementById('title'+val),
+                ndParent = nd.parentNode,
+                newNd = document.createElement('h1');
+                newNd.innerText = `New Title ${val}`;
+                newNd.addEventListener('click', showHxContent(val));
+
+
+            ndParent.insertBefore(newNd, nd);
+        }
+    </script>
+</body>
+
+</html>

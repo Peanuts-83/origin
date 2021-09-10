@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+}
+
+#bart-chart {
+  background-color: rgb(145, 9, 9);
+}
+#bar-chart svg {
+  background-color: gainsboro;
+}
+#bar-chart .bars {
+  fill: lightskyblue;
+}
