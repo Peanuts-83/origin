@@ -1,0 +1,13 @@
+<div class="d-flex justify-content-end">
+    <button class="btn btn-info my-2" (click)='newUser()'>Nouvel Utilisateur ?</button>
+</div>
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor='let user of users'>
+            <h3>{{ user.firstname }} {{ user.lastname }} </h3>
+            <p>{{ user.email }} </p>
+            <p>Enjoys drinking {{ user.drinkPreference }}. </p>
+            <p *ngIf='user.hobbies && user.hobbies.length > 0'>Hobbies:
+                <span *ngFor='let hobby of user.hobbies'>{{ hobby }}, </span>
+            </p>
+        </li>
+    </ul>

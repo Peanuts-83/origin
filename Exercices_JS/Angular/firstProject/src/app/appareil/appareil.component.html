@@ -1,9 +1,11 @@
 <li [ngClass]="{'list-group-item': true,
-                'list-group-item-success': appareilStatus === 'allumé',
-                'list-group-item-danger': appareilStatus === 'éteint'
-                }">
-    <div style='width:200px;height:5px;background:red;'
-        *ngIf="appareilStatus === 'éteint'"></div>
-    <h4 [ngStyle]="{color: getColor()}">Appareil: {{ appareilName }} -- Status: {{ getStatus() }}</h4>
-    <input type="text" class="form-control" [(ngModel)]='appareilName'>
+                'list-group-item-success': appareilStatus === 'On',
+                'list-group-item-danger': appareilStatus === 'Off' }">
+    <!-- <div style='width:120px; height:5px; background:red;' *ngIf="appareilStatus === 'Off'"></div> -->
+    <div class="row">
+        <div class="col-10"><h4 class='d-flex'> Appareil: {{ appareilName }} - Status: {{ appareilStatus }} </h4></div>
+        <div class="col-2 d-flex justify-content-center"> <input class='form-check-input' type='checkbox' [checked]='isChecked()' [disabled]='!isAuth' (click)="onSwitch()"></div>
+    </div>
+    <a [routerLink]='[id]'>Détails</a>
+    <!-- <input class='form-control' [(ngModel)]='appareilName'> -->
 </li>

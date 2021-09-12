@@ -1,8 +1,5 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "cli": {
-    "analytics": false
-  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -10,7 +7,26 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
         },
         "@schematics/angular:application": {
           "strict": true
@@ -34,10 +50,14 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/bootstrap/dist/css/bootstrap.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "styles.scss"
-          ],
-            "scripts": []
+            ],
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/popper.js/dist/umd/popper.min.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {

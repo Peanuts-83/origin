@@ -1,0 +1,4 @@
+<p>L'authentification est requise pour apporter des modifications à l'installation.</p>
+<button class="btn btn-success my-2 mx-1" [disabled]='authStatus' (click)='onSignIn()'>Se connecter</button>
+<button class="btn btn-danger my-2 mx-1" [disabled]='!authStatus' (click)='onSignOut()'>Se déconnecter</button>
+<button class="btn btn-info my-2 mx-1" (click)='newUser()'>Nouvel Utilisateur ?</button>

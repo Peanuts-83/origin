@@ -1,0 +1,16 @@
+<li [ngClass]="{'list-group-item': true,
+            'list-group-item-success': love > 0,
+            'list-group-item-danger': love < 0}">
+    <p class='text-right' style='color: grey;'>{{ postDate | date: 'short' }}</p>
+    <h3>{{ postTitle }}</h3>
+    <p>{{ postContent }}</p>
+    <div class="row">
+        <div class="col-xs-10">
+            <button class='btn btn-success' (click)='onAddLove()'>Love it</button>
+            <button class='btn btn-danger' (click)='onRemLove()'>Don't love it</button>
+        </div>
+        <div class="col">
+            <span class="text-right"> {{ love }} <i class='glyphicon glyphicon-heart'></i> </span>
+        </div>
+    </div>
+</li>
