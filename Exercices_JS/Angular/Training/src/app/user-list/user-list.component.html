@@ -1,0 +1,24 @@
+<ul class="list-group">
+    <button class="btn btn-primary" routerLink='/newUser'>Créer un nouvel Utilisateur</button>
+    <li class="list-group-item" *ngFor='let user of users'>
+        <div class="d-flex">
+            <div class="mr-auto">
+                <h4>{{ user.firstname }} {{ user.lastname }} </h4>
+            </div>
+            <div class="ml-auto">
+                <button type='button' class='btn btn-secondary ml-auto' (click)='onDelete()'>
+                    <i class="fa fa-trash-o"></i>
+                </button>
+            </div>
+        </div>
+
+
+        <em>e-mail: {{ user.email }} </em>
+        <p>Prefered drink: {{ user.drinkPref }} </p>
+        <p *ngIf='user.hobbies && user.hobbies.length > 0'>
+            Hobbies:
+            <span *ngFor='let hobbie of user.hobbies; let i = index'>{{ hobbie }} <span
+                    *ngIf='i !== user.hobbies.length-1'>/ </span> </span>
+        </p>
+    </li>
+</ul>

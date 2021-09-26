@@ -1,0 +1,29 @@
+<h2>Authentification</h2>
+<p>Certaines sections requièrent votre authentification. Merci de bien vouloir vous connecter, ou à défaut de créer un nouveau compte utilisateur.</p>
+<form [formGroup]='authForm' (ngSubmit)='onSignIn()'>
+    <div class="form-group">
+        <label for="login">Login</label>
+        <input type="text"
+                formControlName='login'
+                [ngClass]="{'is-invalid': submitted && u.login.errors}"
+                class="form-control">
+        <div class="invalid-feedback" *ngIf="u.login.errors">
+            <div *ngIf="u.login.errors.required">Login is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="text"
+                formControlName="password"
+                [ngClass]="{'is-invalid': submitted && u.password.errors}"
+                class="form-control">
+        <div class="invalid-feedback" *ngIf="u.password.errors">
+            <div *ngIf="u.password.errors.required">Password is required</div>
+            <div *ngIf="u.password.errors.matching">Password doesn't match</div>
+        </div>
+    </div>
+    <button type='submit' class="btn btn-success" *ngIf='!authStatus' [disabled]='u.invalid'>Connexion</button>
+</form>
+
+<button class="btn btn-danger" *ngIf='authStatus' (click)='onSignOut()'>Déconnexion</button>
+<button class="btn btn-primary" (click)='onNewUser()'>Créer un nouvel utilisateur</button>

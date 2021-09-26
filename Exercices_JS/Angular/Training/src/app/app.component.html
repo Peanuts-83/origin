@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-md navbar-default navbar-dark bg-dark">
+    <!-- <p class='text-white'>{{ secondes }}</p> -->
+    <div class="container-fluid">
+        <ul class="navbar-nav mb-2 mb-lg-0">
+            <li routerLinkActive='active'>
+                <a routerLink="auth"
+                class='nav-link'
+                >Authentification</a>
+            </li>
+            <li routerLinkActive='active'>
+                <a routerLink="appareils"  class='nav-link'><h3>Appareils</h3></a>
+            </li>
+            <li routerLinkActive='active'>
+                <a routerLink="editAppareil"  class='nav-link'>Ajouter un appareil</a>
+            </li>
+            <li routerLinkActive='active'>
+                <a routerLink="users"  class='nav-link'>Utilisateurs</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div class="row-10 my-3">
+        <router-outlet></router-outlet>
+    </div>
+</div>

@@ -1,0 +1,75 @@
+<div class="col-sm-8">
+    <form [formGroup]='userForm' (ngSubmit)='onSubmit()'>
+        <div class="form-group">
+            <label for="login">Login*</label>
+            <input type="text"
+                    formControlName="login"
+                    class="form-control"
+                    [ngClass]="{'is-invalid': submitted && f.login.errors}">
+            <div *ngIf="f.login.errors" class="invalid-feedback">
+                <div *ngIf="f.login.errors.required">Login is required</div>
+                <div *ngIf="f.login.errors.minlength">Login must be at least 6 characters</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password">Password*</label>
+            <input type="text"
+                    formControlName="password"
+                    class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+            <div *ngIf="f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">
+                    Password is required
+                </div>
+                <div *ngIf="f.password.errors.minlength">
+                    Password must be at least 8 characters
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="confirmPassword">Confirm password</label>
+            <input type="text"
+                    formControlName="confirmPassword"
+                    class="form-control"
+                    [ngClass]="{'is-invalid': submitted && f.confirmPassword.errors}">
+            <div *ngIf="f.confirmPassword.errors" class="invalid-feedback">
+                <div *ngIf="f.confirmPassword.errors.matching">Password confirmation doesn't match!</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="firstname">First Name</label>
+            <input type="text" formControlName="firstname" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="llastname">Last Name</label>
+            <input type="text" formControlName="lastname" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="email">E-mail*</label>
+            <input type="text"
+                    formControlName="email"
+                    class="form-control"
+                    [ngClass]="{'is-invalid': submitted && f.email.errors}">
+            <div *ngIf="f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Your e-mail is required</div>
+                <div *ngIf="f.email.errors.matching">Invalid e-mail</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="drinkPref">Prefered drink</label>
+            <select name="drinkPref" formControlName='drinkPref' class='form-control'>
+                <option value="jus d\'orange">Jus d'orange</option>
+                <option value="biere">Bière</option>
+                <option value="the">Thé</option>
+            </select>
+        </div>
+        <div formArrayName='hobbies'>
+            <h4>Hobbies <button type='button' class="btn btn-primary py-0" title='Add Hobby'
+                    (click)='onAddHobby()'>+</button></h4>
+            <div class="form-group" *ngFor='let hobbyControl of getHobbies().controls; let i = index'>
+                <input type="text" [formControlName]="i" class="form-control">
+            </div>
+        </div>
+        <button type='submit' class="btn btn-success">Créer l'utilisateur</button>
+    </form>
+</div>

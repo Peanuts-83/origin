@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-sm-8">
+        <form (ngSubmit)='onSubmit(f)' #f='ngForm'>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type='text' class='form-control' name='name' ngModel required>
+            </div>
+            <div class="form-group">
+                <label for="Status">Statut</label>
+                <select class="form-control" name="status" ngModel="Off">
+                    <option value="On">On</option>
+                    <option value="Off">Off</option>
+                </select>
+            </div>
+            <button class="btn btn-success"
+                    type='submit'
+                    [disabled]='f.invalid'>Créer l'appareil</button>
+        </form>
+    </div>
+</div>
