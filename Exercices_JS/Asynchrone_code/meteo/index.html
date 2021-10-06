@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=500, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script src="https://kit.fontawesome.com/58b26ec2f8.js" crossorigin="anonymous"></script>
+    <title>Meteo API</title>
+    <style>
+        body {
+            background: url("https://image.freepik.com/vecteurs-libre/fond-nuages-magnifiques-design-ciel-bleu_1017-25501.jpg") no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+        p.title {
+            font-size: 1.3em;
+        }
+
+        td {
+            border-bottom: 1px solid darkblue;
+            border-top: 1px solid darkblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="fixed-top bg-primary m-0 p-0 w-100">
+            <nav class="d-flex justify-content-around col-8 col-sm navbar navbar-dark font-weight-bold">
+                <a class="d-flex justify-content-left navbar-brand" href="index.html">
+                    <i class="fas fa-2x fa-cloud-sun"></i>
+                    <p class="title"> Météo API</p>
+                </a>
+                <!-- City selector -->
+                <div class="dropdown">
+                    <button class="btn btn-warning dropdown-toggle" id="dropdownMenuButton" type="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sélectionnez une ville</button>
+                    <div class="dropdown-menu" id="city" aria-labelledby="dropdownMenuButton">
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-2"></div>
+            <div class="col-8 mt-5">
+                <h1 class="text-warning font-weight-bold mt-5" id="cityName">Chargement en cours...</h1>
+                <table class="table">
+                    <thead>
+                        <tr class="table-secondary text-primary">
+                            <th scope="col">Température</th>
+                            <th scope="col">Vitesse du vent</th>
+                            <th scope="col">Direction du vent</th>
+                        </tr>
+                        <tbody>
+                            <tr class="table-white" id="values">
+                                <td id="temp"></td>
+                                <td id="speed"></td>
+                                <td id="deg"></td>
+                            </tr>
+                        </tbody>
+                    </thead>
+                </table>
+                <div style="height: 30%;"></div>
+                <span id="gps" style="float: left; margin-left: 10px;"></span><span id="date"
+                    style="float: right;margin-right: 10px;"></span>
+                <div class="alert alert-success alert-dismissible fade show mt-5" role="alert">
+                    <strong>Intentions</strong> Création d'un widget météo. <br><strong> Techno</strong> Bootstrap.
+                    <br>Exploitation d'une API externe libre d'accès.
+                    <button class="close" type="button" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+
+    <script>
+        // insertion points & lists
+        const APPID = '7a70c5dcef6b1a11371daf7aa9ce60a7';
+        let cities = [],        // list from webboy
+            citiesData = [];    // datas from API
+        let cityIn = document.querySelector('#city');
+        let values = document.querySelector('#values');
+        let cityValues;
+        let icons = {
+            '01': 'fas fa-sun',
+            '02': 'fas fa-cloud-sun',
+            '03': 'fas fa-cloud',
+            '04': 'fas fa-cloud-rain',
+            '09': 'fas fa-cloud showers-heavy',
+            '10': 'fas fa-cloud-sun-rain',
+            '11': 'fas fa-poo-storm',
+            '13': 'fas fa-snowflake',
+            '50': 'fas fa-smog'
+        }
+
+        function getCities() {
+            fetch('https://meteo.webboy.fr/')
+                .then(response => response.json())
+                .then(data => {
+                    cities = [...data];
+
+                    getEachCity();
+
+                    async function getEachCity() {
+                        for (let city of cities) {
+                            let data = await fetch(`https://api.openweathermap.org/data/2.5/weather?id=${city['id']}&APPID=${APPID}&units=metric`).then(response => response.json());
+                            citiesData.push(data);
+                        }
+                        // fill city menu
+                        for (let city of citiesData) {
+                            let ct = city['name'];
+                            let optionCity = document.createElement('a');
+
+                            optionCity.setAttribute('value', ct);
+                            optionCity.setAttribute('class', 'dropdown-item');
+                            optionCity.setAttribute('onclick', `getCity("${ct}")`);
+                            optionCity.innerHTML = ct;
+                            cityIn.appendChild(optionCity);
+                        }
+                    getCity('Paris');
+                    }
+                });
+        }
+
+        function getCity(city) {
+            let NS, EO;
+            let id = city;
+            let target = citiesData.filter(data => data.name === id)[0];
+            let icon = icons[target.weather[0].icon.slice(0, 2)];
+
+            document.querySelector('#cityName').innerHTML = id + ` <i class='${icon} fa-sm-3x'></i>`;
+            document.querySelector('#temp').innerHTML = target.main.temp.toFixed(1) + ' °C';
+            document.querySelector('#speed').innerHTML = Math.round(target.wind.speed *3.6).toFixed(1) + ' Km/h' ;
+            document.querySelector('#deg').innerHTML = `<i class='far fa-arrow-alt-circle-up fa-lg' style='transform: rotate(${target.wind.deg}deg)'></i>  ${target.wind.deg} degrés`;
+            target.coord.lat >= 0 ? NS = "°N, " : NS = "°S, ";
+            target.coord.lon >= 0 ? EO = "°O" : EO = "°E";
+            document.querySelector('#gps').innerHTML = '<em class="text-light"><i class="fas fa-globe"></i> GPS: ' + Math.abs(target.coord.lat).toFixed(1) + NS + Math.abs(target.coord.lon).toFixed(1) + EO + '</em>';
+            document.querySelector('#date').innerHTML = '<em class="text-light">' + new Date().toDateString() + '</em>';
+        }
+
+        // initializer
+        document.onload = getCities();
+    </script>
+</body>
+
+</html>

@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-12">
       <h1 class='text-center'>{{ title }}</h1>
-      <ul class="list-group">
+      <ul class="list-group list-group-flush">
         <app-post *ngFor='let post of posts'
                           [postTitle]="post.title"
                           [postContent]="post.content"></app-post>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=500px, initial-scale=1.0">
+    <title>Json</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="insertion"></div>
+    <script>
+        let eleves = [
+            { name: 'Bill', age: '19', class: 'A8', notes: [12, 5, 8, 3, 19, 17] },
+            { name: 'Sarah', age: '18', class: 'A7', notes: [15, 8, 9, 7, 32, 12] },
+            { name: 'Lise', age: '21', class: 'B2', notes: [11, 11, 15, 12, 11] }
+        ];
+        let insertion = document.getElementById('insertion');
+        insertion.innerHTML = JSON.stringify(eleves);
+        console.log(eleves);
+        console.log(JSON.stringify(eleves));
+
+        let result = '{ "squadName": "Super hero squad", "homeTown": "Metro City", "formed": 2016, "secretBase": "Super tower", "active": true, "members": [ { "name": "Molecule Man", "age": 29, "secretIdentity": "Dan Jukes", "powers": [ "Radiation resistance", "Turning tiny", "Radiation blast" ] }, { "name": "Madame Uppercut", "age": 39, "secretIdentity": "Jane Wilson", "powers": [ "Million tonne punch", "Damage resistance", "Superhuman reflexes" ] }, { "name": "Eternal Flame", "age": 1000000, "secretIdentity": "Unknown", "powers": [ "Immortality", "Heat Immunity", "Inferno", "Teleportation", "Interdimensional travel" ] } ] }';
+        let newData = JSON.parse(result);
+
+        function edit(obj) {
+            for (let item in obj) {
+                typeof obj[item] !== 'object' ?  console.log(`${item} : ${obj[item]}`) : (console.log(item), edit(obj[item]));
+            }
+        }
+        edit(newData);
+    </script>
+</body>
+
+</html>

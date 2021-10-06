@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=500, initial-scale=1.0">
+    <title>Ajax</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <h2>Exemple simple asynchrone avec Typicode</h2>
+    <p><a href="https://jsonplaceholder.typicode.com/" target="_blank">https://jsonplaceholder.typicode.com/</a></p>
+    <form>
+        <label for="userId">Get a user data by his id: </label>
+        <select id="userId" onchange="askForUser()">
+            <option value=""></option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+    </form>
+    <div id="insert"></div>
+    <script>
+        let insert = document.getElementById('insert');
+        let userId = document.getElementById('userId');
+
+        function askForUser() {
+            id = userId.value;
+            console.log('userId: ', id);
+            console.log('fetch adress: https://jsonplaceholder.typicode.com/users/' + id)
+            fetch('https://jsonplaceholder.typicode.com/users/' + id)
+                .then(response => response.json())
+                .then(data => {
+                    console.log('console msg: ', data);
+                    insert.innerHTML = `<h1>${data['name']}</h1>`;
+                    insert.innerHTML += `<h2>Pseudo: ${data['username']} (id#${id})</h2>`;
+                    insert.innerHTML += `<p>Email: ${data['email']}</p>`;
+                    insert.innerHTML += `<p>Téléphone: ${data['phone']}</p>`;
+                    insert.innerHTML += `<p>Site web: ${data['website']}</p>`;
+                    insert.innerHTML += `<h3>Adresse</h3>`;
+                    insert.innerHTML += `<ul>`;
+                    for(let li in data['address']) {
+                        insert.innerHTML += `<li>${data['address'][li]}</li>`;
+                    }
+                    insert.innerHTML += `</ul>`;
+                    insert.innerHTML += `<h3>Entreprise</h3>`;
+                    insert.innerHTML += `<ul>`;
+                    for(let li in data['company']) {
+                        insert.innerHTML += `<li>${data['company'][li]}</li>`;
+                    }
+                    insert.innerHTML += `</ul>`;
+                })
+
+        };
+    </script>
+</body>
+
+</html>

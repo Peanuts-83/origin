@@ -1,0 +1,78 @@
+
+body, #nav {
+    background: url('./media/background.webp')  no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.navbar a, #testimonies-nav a, .jumbotron a {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+nav {
+    font-size: 15px;
+    font-weight: bold;
+}
+.btn, .form-control {
+    font-size: 15px;
+}
+.dropdown-menu a {
+    color: rgb(69, 69, 69);
+    font-size: 13px;
+}
+
+#content {
+    color: rgb(255, 255, 255);
+}
+#content #inner, #content #inner-col {
+    color: rgb(69,69,69);
+}
+.jumbotron, #testimonies-nav li {
+    background: none;
+    color: white;
+}
+.jumbotron h1 {
+    font-size: 6vw;
+}
+.jumbotron p {
+    font-size: 3vw;
+}
+.carousel-caption {
+    font-weight: bold;
+}
+.card, #testimonies article {
+    background: rgba(255, 255, 255, 0.7);
+}
+.card:hover, #testimonies article:hover {
+    background: rgba(255, 255, 255, 1);
+}
+.card-header {
+    font-size: 15px;
+    font-weight: bold;
+}
+.card-body, .card-body small {
+    color: rgb(126, 126, 126);
+}
+#content #email-adress a {
+    color:rgb(193, 93, 0)
+}
+#content .list-group li, #content #support{
+    background-color: rgb(233, 233, 233);
+}
+
+.footer {
+    background-color: lightgray;
+}
+.footer tit {
+    font-size: 13px;
+    font-weight: bold;
+    color: rgb(69, 69, 69);
+}
+.footer p, .footer ul {
+    font-size: 11px;
+    color: rgb(108, 108, 108);
+}
+.footer a {
+    color:rgb(108, 108, 108);
+}

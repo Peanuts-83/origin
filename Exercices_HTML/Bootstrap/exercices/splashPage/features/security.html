@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=500, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script src="https://kit.fontawesome.com/58b26ec2f8.js" crossorigin="anonymous"></script>
+    <title>Welcome at Cloud tunes©</title>
+
+</head>
+
+<body>
+    <div class="container-fluid fixed-top" id='nav'>
+        <nav class="navbar navbar-expand-md navbar-dark border-bottom border-primary">
+            <!-- navbar-brand -->
+            <a href="../index.html" class="navbar-brand">
+                <img src="../media/cloud-logo-20.png" alt="cloudTunes_logo" style="width: 80px;">
+            </a>
+            <!-- button navbar-toggler -->
+            <button class="btn btn-outline-light offset-md mt-1 mt-md-0 navbar-toggler"  type="button" data-toggle="collapse" data-target="#collapseNavbar" aria-expanded="false" aria-controls="collapseExample">
+                <i class="fas fa-bars" style="font-size: 24px;"></i>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="collapseNavbar">
+                <!-- navbar-nav & nav-item -->
+                <ul class="navbar-nav">
+                    <!-- dropdown dd-toggle dd-menu dd-item-->
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown">Features</a>
+                        <div class="dropdown-menu">
+                            <a href="./scalable_db.html" class="dropdown-item">Scalable database</a>
+                            <a href="./security.html" class="dropdown-item">Improved security</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../enterprise.html" class="nav-link">Enterprise</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../pricing.html" class="nav-link">Pricing</a>
+                    </li>
+                    <li class="nav-item mr-3">
+                        <a href="../support.html" class="nav-link">Support</a>
+                    </li>
+                </ul>
+                <!-- form-inline -->
+                <form action="#" class="my-1 my-md-0 justify-content-start justify-content-md-end" >
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+                        </div>
+                        <input type="search" class="form-control w-50" placeholder="search">
+                    </div>
+                </form>
+            </div>
+        </nav>
+    </div>
+
+    <!-- CONTENT SECTION -->
+    <div class="container-fluid mt-5 bg-light">
+        <div class="row d-flex justify-content-around" id="content">
+            <div class="col-md-8 mt-md-5" id="inner">
+                <img src="../media/mongoDb.webp" alt="globe" class="img-fluid col-md-6 border-right border-grey float-md-left mr-3 mb-3">
+                <h1>Improved security</h1>
+                <p class="lead">MongoDB Atlas makes it easy to control access to your database. Your database instances are deployed in a unique Virtual Private Cloud (VPC) to ensure network isolation.</p>
+                <br><p>Other security features include IP whitelisting or VPC Peering, always-on authentication, encryption at rest and encryption in transit, sophisticated role-based access management, and more. MongoDB Atlas also includes powerful features to enhance reliability for your mission-critical production databases, such as continuous backups and point-in-time recovery.</p>
+
+                <img src="../media/features/alwaydOn.webp" alt="" class="img-fluid col-6 float-right ml-3 mt-3 mb-3">
+                <br><h4>Fully automated and elastic</h4>
+                <br><p>MongoDB Atlas automates infrastructure provisioning, setup, and deployment so your teams can get the database resources they need, when they need them. Patches and minor version upgrades are applied automatically. And when you need to modify your cluster — whether it’s to scale out or perform an upgrade — MongoDB Atlas lets you do so in a few clicks with no downtime window required.</p>
+            </div>
+            <div class="col-md-3 mt-md-5" id="inner-col">
+                <ul class="list-group list-group-flush">
+                    <li class='list-group-item'>
+                        <img src="../media/features/woman.jpg" alt="" class=" col-3 col-md-8">
+                    </li>
+                    <li class='list-group-item'>
+                        <h5>Lucy Wang</h5>
+                        <small>Security Director</small>
+                    </li>
+                    <li class='list-group-item'>
+                        <p>Patches and minor version upgrades are applied automatically. And when you need to modify your cluster. A big consideration with most passports is making sure that the ID.</p>
+                    </li>
+                    <li class="list-group-item list-group-item-action" id='email-adress'>
+                        <a href="mailto:lucy-wang@cloudtunes.com">lucy-wang @cloudtunes.com</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- footer section -->
+    <div class="container-fluid">
+        <div class="row footer d-flex border-top mb-5">
+            <div class="col mx-2">
+                <a href="https://getbootstrap.com/" alt="Bootstrap website" target="_blank">
+                    <img src="https://www.logo.wine/a/logo/Bootstrap_(front-end_framework)/Bootstrap_(front-end_framework)-Logo.wine.svg" width="50px" alt="Bootstrap_logo">
+                    <br><p>© 2020-2021</p>
+                </a>
+            </div>
+            <div class="col mx-2">
+                <tit>Features</tit>
+                <ul class="list-unstyled">
+                    <li><a href="#">Cool stuff</a> </li>
+                    <li><a href="#">Random features</a></li>
+                    <li><a href="#">Team features</a></li>
+                    <li><a href="#">Stuff for developers</a></li>
+                    <li><a href="#">Another one</a></li>
+                    <li><a href="#">Last one</a></li>
+                </ul>
+            </div>
+            <div class="col mx-2">
+                <tit>Ressources</tit>
+                <ul class="list-inline">
+                    <li><a href="#">Tech ressources</a></li>
+                    <li><a href="#">RH stuff</a></li>
+                    <li><a href="#">Research</a></li>
+                </ul>
+            </div>
+            <div class="col mx-2">
+                <tit>About</tit>
+                <ul class="list-inline">
+                    <li><a href="#">Team</a></li>
+                    <li><a href="#">Locations</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // insertion points & lists
+
+        // initializer
+
+    </script>
+</body>
+
+</html>

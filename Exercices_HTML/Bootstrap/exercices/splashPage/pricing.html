@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=500, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script src="https://kit.fontawesome.com/58b26ec2f8.js" crossorigin="anonymous"></script>
+    <title>Welcome at Cloud tunes©</title>
+
+</head>
+
+<body>
+    <div class="container-fluid fixed-top" id='nav'>
+        <nav class="navbar navbar-expand-md navbar-dark border-bottom border-primary">
+            <!-- navbar-brand -->
+            <a href="index.html" class="navbar-brand">
+                <img src="./media/cloud-logo-20.png" alt="cloudTunes_logo" style="width: 80px;">
+            </a>
+            <!-- button navbar-toggler -->
+            <button class="btn btn-outline-light offset-md mt-1 mt-md-0 navbar-toggler"  type="button" data-toggle="collapse" data-target="#collapseNavbar" aria-expanded="false" aria-controls="collapseExample">
+                <i class="fas fa-bars" style="font-size: 24px;"></i>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="collapseNavbar">
+                <!-- navbar-nav & nav-item -->
+                <ul class="navbar-nav">
+                    <!-- dropdown dd-toggle dd-menu dd-item-->
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown">Features</a>
+                        <div class="dropdown-menu">
+                            <a href="./features/scalable_db.html" class="dropdown-item">Scalable database</a>
+                            <a href="./features/security.html" class="dropdown-item">Improved security</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./enterprise.html" class="nav-link">Enterprise</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./pricing.html" class="nav-link">Pricing</a>
+                    </li>
+                    <li class="nav-item mr-3">
+                        <a href="./support.html" class="nav-link">Support</a>
+                    </li>
+                </ul>
+                <!-- form-inline -->
+                <form action="#" class="my-1 my-md-0 justify-content-start justify-content-md-end" >
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+                        </div>
+                        <input type="search" class="form-control w-50" placeholder="search">
+                    </div>
+                </form>
+            </div>
+        </nav>
+    </div>
+
+    <!-- content section -->
+    <div class="container-fluid mt-5">
+        <div class="row justify-content-center" id="content">
+            <div class="col-md-8 text-center">
+                <div class="jumbotron">
+                    <h1 class="display-4">Pricing</h1>
+                    <p>Quickly build an effective pricing table for your potential customers with this Bootstrap example. <br> It's built with default Bootstrap components and utilities with little customizations.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row d-flex text-center justify-content-center mb-4">
+            <div class="col-md-3 card mx-2 mb-2">
+                    <h5 class="card-header">Free</h5>
+                    <div class="card-body mx-3"><h2 style="color: black;">$0 <small>/ mo</small></h2></div>
+                    <ul class="card-text list-inline">
+                        <li><small>10 users included</small></li>
+                        <li><small>2 GB of storage</small></li>
+                        <li><small>Email support</small></li>
+                        <li><small>Help center access</small></li>
+                    </ul>
+                    <a href="./pricing/free.html" class="btn btn-outline-primary m-3">Sign up for free</a>
+            </div>
+            <div class="col-md-3 card mx-2  mb-2">
+                    <h5 class="card-header">Pro</h5>
+                    <div class="card-body mx-3"><h2 style="color: black;">$15 <small>/ mo</small></h2></div>
+                    <ul class="card-text list-inline">
+                        <li><small>20 users included</small></li>
+                        <li><small>10 GB of storage</small></li>
+                        <li><small>Priority email support</small></li>
+                        <li><small>Help center access</small></li>
+                    </ul>
+                    <a href="./pricing/pro.html" class="btn btn-success m-3">Get started</a>
+            </div>
+            <div class="col-md-3 card mx-2 mb-2">
+                    <h5 class="card-header">Enterprise</h5>
+                    <div class="card-body mx-3"><h2 style="color: black;">$29 <small>/ mo</small></h2></div>
+                    <ul class="card-text list-inline">
+                        <li><small>30 users included</small></li>
+                        <li><small>15 GB of storage</small></li>
+                        <li><small>Phone & email support</small></li>
+                        <li><small>Help center access</small></li>
+                    </ul>
+                    <a href="./pricing/enterprise.html" class="btn btn-danger m-3">Contact us</a>
+            </div>
+        </div>
+
+        <!-- footer section -->
+        <div class="row footer d-flex border-top mb-5">
+            <div class="col mx-2">
+                <a href="https://getbootstrap.com/" alt="Bootstrap website" target="_blank">
+                    <img src="https://www.logo.wine/a/logo/Bootstrap_(front-end_framework)/Bootstrap_(front-end_framework)-Logo.wine.svg" width="50px" alt="Bootstrap_logo">
+                    <br><p>© 2020-2021</p>
+                </a>
+            </div>
+            <div class="col mx-2">
+                <tit>Features</tit>
+                <ul class="list-unstyled">
+                    <li><a href="#">Cool stuff</a> </li>
+                    <li><a href="#">Random features</a></li>
+                    <li><a href="#">Team features</a></li>
+                    <li><a href="#">Stuff for developers</a></li>
+                    <li><a href="#">Another one</a></li>
+                    <li><a href="#">Last one</a></li>
+                </ul>
+            </div>
+            <div class="col mx-2">
+                <tit>Ressources</tit>
+                <ul class="list-inline">
+                    <li><a href="#">Tech ressources</a></li>
+                    <li><a href="#">RH stuff</a></li>
+                    <li><a href="#">Research</a></li>
+                </ul>
+            </div>
+            <div class="col mx-2">
+                <tit>About</tit>
+                <ul class="list-inline">
+                    <li><a href="#">Team</a></li>
+                    <li><a href="#">Locations</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // insertion points & lists
+
+        // initializer
+
+    </script>
+</body>
+
+</html>

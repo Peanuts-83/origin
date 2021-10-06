@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=500, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script src="https://kit.fontawesome.com/58b26ec2f8.js" crossorigin="anonymous"></script>
+    <title>Responsive exercices</title>
+    <style>
+        
+        a {
+            color: rgb(69, 69, 69);
+        }
+        nav {
+            font-size: 15px;
+        }
+        .btn, .form-control {
+            font-size: 15px;
+        }
+        .dropdown-item {
+            font-size: 13px;
+        }
+
+        #content {
+            color: rgb(69, 69, 69);
+        }
+        .jumbotron, .card {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .card-header {
+            font-size: 15px;
+            font-weight: bold;
+        }
+        .card-body small {
+            color: grey;
+        }
+
+        .footer {
+            background-color: lightgray;
+        }
+        .footer tit {
+            font-size: 13px;
+            font-weight: bold;
+            color: rgb(69, 69, 69);
+        }
+        .footer p, .footer ul {
+            font-size: 11px;
+            color: rgb(108, 108, 108);
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-md border-bottom border-primary">
+            <!-- navbar-brand -->
+            <a href="#" class="navbar-brand">Company name</a>
+            <!-- button navbar-toggler -->
+            <button class="btn offset-md mt-1 mt-md-0 navbar-toggler"  type="button" data-toggle="collapse" data-target="#collapseNavbar" aria-expanded="false" aria-controls="collapseExample">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="collapseNavbar">
+                <!-- navbar-nav & nav-item -->
+                <ul class="navbar-nav">
+                    <!-- dropdown dd-toggle dd-menu dd-item-->
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown">Features</a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item">Cat1</a>
+                            <a href="#" class="dropdown-item">Cat2</a>
+                            <a href="#" class="dropdown-item">Cat3</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Enterprise</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Pricing</a>
+                    </li>
+                    <li class="nav-item mr-3">
+                        <a href="#" class="nav-link active">Support</a>
+                    </li>
+                </ul>
+                <!-- form-inline -->
+                <form action="#" class="my-1 my-md-0 justify-content-start justify-content-md-end" style="width: 300px">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+                        </div>
+                        <input type="search" class="form-control w-50" placeholder="search">
+                    </div>
+                </form>
+            </div>
+        </nav>
+        <div class="row justify-content-center" id="content">
+            <div class="col-md-8 text-center">
+                <div class="jumbotron">
+                    <h1 class="display-4 ">Pricing</h1>
+                    <p>Quickly build an efective pricing table for your potential customers with this
+                        Bootstrap example. It's built with default Bootstrap components and utilities
+                        with little customizations.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row d-flex text-center justify-content-center mb-4">
+            <div class="col-md-3 card mx-2 mb-2">
+                    <h5 class="card-header">Free</h5>
+                    <div class="card-body mx-3"><h2>$0 <small>/ mo</small></h2></div>
+                    <ul class="card-text list-inline">
+                        <li><small>10 users included</small></li>
+                        <li><small>2 GB of storage</small></li>
+                        <li><small>Email support</small></li>
+                        <li><small>Help center access</small></li>
+                    </ul>
+                    <a href="#" class="btn btn-outline-primary m-3">Sign up for free</a>
+            </div>
+            <div class="col-md-3 card mx-2  mb-2">
+                    <h5 class="card-header">Pro</h5>
+                    <div class="card-body mx-3"><h2>$15 <small>/ mo</small></h2></div>
+                    <ul class="card-text list-inline">
+                        <li><small>20 users included</small></li>
+                        <li><small>10 GB of storage</small></li>
+                        <li><small>Priority email support</small></li>
+                        <li><small>Help center access</small></li>
+                    </ul>
+                    <a href="#" class="btn btn-primary m-3">Get started</a>
+            </div>
+            <div class="col-md-3 card mx-2 mb-2">
+                    <h5 class="card-header">Enterprise</h5>
+                    <div class="card-body mx-3"><h2>$29 <small>/ mo</small></h2></div>
+                    <ul class="card-text list-inline">
+                        <li><small>30 users included</small></li>
+                        <li><small>15 GB of storage</small></li>
+                        <li><small>Phone & email support</small></li>
+                        <li><small>Help center access</small></li>
+                    </ul>
+                    <a href="#" class="btn btn-primary m-3">Contact us</a>
+            </div>
+        </div>
+        <div class="row footer d-flex border-top ">
+            <div class="col mx-2">
+                <img src="https://www.logo.wine/a/logo/Bootstrap_(front-end_framework)/Bootstrap_(front-end_framework)-Logo.wine.svg" width="50px" alt="Bootstrap_logo">
+                <br><p>© 2020-2021</p>
+            </div>
+            <div class="col mx-2">
+                <tit>Features</tit>
+                <ul class="list-inline">
+                    <li>Cool stuff</li>
+                    <li>Random features</li>
+                    <li>Team features</li>
+                    <li>Stuff for developers</li>
+                    <li>Another one</li>
+                    <li>Last one</li>
+                </ul>
+            </div>
+            <div class="col mx-2">
+                <tit>Ressources</tit>
+                <ul class="list-inline">
+                    <li>Tech ressources</li>
+                    <li>RH stuff</li>
+                    <li>Research</li>
+                </ul>
+            </div>
+            <div class="col mx-2">
+                <tit>About</tit>
+                <ul class="list-inline">
+                    <li>Team</li>
+                    <li>Locations</li>
+                    <li>Privacy</li>
+                    <li>Terms</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // insertion points & lists
+
+        // initializer
+
+    </script>
+</body>
+
+</html>

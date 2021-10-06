@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=500px, initial-scale=1.0">
+    <title>Horloge</title>
+    <style>
+        #insertion {
+            transition: color 2s cubic-bezier(1, 1, 1, 1);
+            transition-delay: 0s;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        <div id="insertion"></div>
+    </h1>
+    <script>
+        let insertPoint = document.getElementById('insertion');
+        setInterval(() => {
+            insertPoint.textContent = new Date().toTimeString();
+        }, 1000);
+
+        const colors = ['orange', 'yellow', 'green', 'blue', 'purple', 'red'];
+        let activeColor = 0;
+        let colorMove = setInterval(() => {
+            insertPoint.style.cssText = 'color:' + colors[activeColor];
+            activeColor++;
+            if (activeColor === undefined || activeColor >= colors.length) { activeColor = 0; }
+        }, 1000);
+
+
+        /*let opValue = 100;
+        let fader = setInterval(() => {
+            insertPoint.style = 'opacity:' + opValue;
+            opValue -= 0.1;
+            opValue < 0  ? opValue = 1 : null;
+        }, 200);*/
+    </script>
+</body>
+
+</html>
