@@ -4,6 +4,10 @@
 .env
 environment.*
 
+# exercices micmac
+../../promises/promises-exercises
+exercices GIT
+
 # compiled output
 /dist
 /tmp
