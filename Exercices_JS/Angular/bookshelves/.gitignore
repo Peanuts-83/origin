@@ -2,6 +2,7 @@
 
 # secured credentials to firebase
 .env
+environment.*
 
 # exercices micmac
 ../../promises/promises-exercises
