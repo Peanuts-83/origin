@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import firebase from 'firebase';
 
 @Component({
@@ -9,14 +10,14 @@ import firebase from 'firebase';
 export class AppComponent {
   constructor() {
     const firebaseConfig = {
-        apiKey: process.env.API_KEY,
-        authDomain: process.env.AUTH_DOMAIN,
-        databaseURL: process.env.DATABASE_URL,
-        projectId: process.env.PROJECT_ID,
-        storageBucket: process.env.STORAGE_BUCKET,
-        messagingSenderId: process.env.MSG_SENDER_ID,
-        appId: process.env.APP_ID,
-        measurementId: process.env.MSRT_ID
+        apiKey: environment.apiKey,
+        authDomain: environment.authDomain,
+        databaseURL: environment.databaseURL,
+        projectId: environment.projectId,
+        storageBucket: environment.storageBucket,
+        messagingSenderId: environment.messagingSenderId,
+        appId: environment.appId,
+        measurementId: environment.measurementId
       };
       firebase.initializeApp(firebaseConfig);
   }

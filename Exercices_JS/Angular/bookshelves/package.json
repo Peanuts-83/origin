@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "config": "ts-node ./scripts/envSettings.ts",
-    "start": "npm run config -- --environment=dev && ng serve",
+    "config": "node ./src/scripts/envSettings.ts",
+    "config:ok": "npm run config -- --environment=dev" ,
+    "start": "npm run config:ok && ng serve",
     "build": "npm run config -- --environment=prod && ng build",
     "watch": "ng build --watch --configuration development",
     "test": "npm run config -- --environment=dev && ng test"
