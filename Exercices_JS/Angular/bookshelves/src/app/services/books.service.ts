@@ -54,7 +54,7 @@ export class BooksService {
                 .child('images/' + almostUniqueFileName + file.name).put(file);
             upload.on(firebase.storage.TaskEvent.STATE_CHANGED,
                 () => { console.log('Chargement...'); },
-                (error) => { console.log('Errur de chargement: ' + error); reject(); },
+                (error) => { console.log('Erreur de chargement: ' + error); reject(); },
                 () => { resolve(upload.snapshot.ref.getDownloadURL()) }
             )
         })

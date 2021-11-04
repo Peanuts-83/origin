@@ -9,14 +9,14 @@ import firebase from 'firebase';
 export class AppComponent {
   constructor() {
     const firebaseConfig = {
-        apiKey: "AIzaSyDnHHKSCCcsXpyjxPBtSh-nQ7aZfGDIYu8",
-        authDomain: "firstproject-aa4fd.firebaseapp.com",
-        databaseURL: "https://firstproject-aa4fd-default-rtdb.europe-west1.firebasedatabase.app",
-        projectId: "firstproject-aa4fd",
-        storageBucket: "firstproject-aa4fd.appspot.com",
-        messagingSenderId: "998528775360",
-        appId: "1:998528775360:web:836f5754e3598d13876925",
-        measurementId: "G-V6LL8N4N0V"
+        apiKey: process.env.API_KEY,
+        authDomain: process.env.AUTH_DOMAIN,
+        databaseURL: process.env.DATABASE_URL,
+        projectId: process.env.PROJECT_ID,
+        storageBucket: process.env.STORAGE_BUCKET,
+        messagingSenderId: process.env.MSG_SENDER_ID,
+        appId: process.env.APP_ID,
+        measurementId: process.env.MSRT_ID
       };
       firebase.initializeApp(firebaseConfig);
   }
