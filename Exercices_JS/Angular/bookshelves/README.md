@@ -3,7 +3,17 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.5.
 
 ## Securization
-To be finalized soon, securing firebase credentials...
+Secured firebase credentials... Create a .env file at root filled with your firebase credentials:
+```
+API_KEY="xxx"
+AUTH_DOMAIN="xxx"
+DATABASE_URL="xxx"
+PROJECT_ID="xxx"
+STORAGE_BUCKET="xxx"
+MSG_SENDER_ID="xxx"
+APP_ID="xxx"
+MSRT_ID="xxx"
+```
 
 ## Development server
 
