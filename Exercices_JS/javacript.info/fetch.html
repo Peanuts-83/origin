@@ -1,0 +1,33 @@
+<!doctype html>
+
+<head></head>
+
+<body>
+  <script>
+
+
+    async function getUsers(names) {
+      let users = [];
+
+      for (let name of names) {
+        let getList = fetch(`https://api.github.com/users/${name}`)
+          .then(res => {
+            if (res.status !== 200) return null;
+            return res.json();
+          })
+          .catch(err => null)
+        // .then(data => users.push(data))
+        users.push(getList);
+      }
+
+      console.log(users);
+      return await Promise.all(users);
+    }
+
+    getUsers(['Peanuts-83', 'no-one']);
+
+  </script>
+</body>
+
+
+</html>

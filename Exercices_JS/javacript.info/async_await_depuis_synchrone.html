@@ -1,0 +1,26 @@
+<!doctype html>
+
+<head></head>
+
+<body>
+  <script>
+    async function wait() {
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      return 10;
+    }
+
+    function f() {
+      // ...que devez-vous écrire ici?
+      // nous devons appeler async wait() et attendre pour obtenir 10
+      // Souvenez-vous, on ne peut pas utiliser "await".
+      wait().then(res => console.log(res));
+    }
+
+    f();
+
+  </script>
+</body>
+
+
+</html>

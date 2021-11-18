@@ -1,0 +1,18 @@
+<html>
+<head></head>
+<body>
+  <textarea name="text" id="text" cols="30" rows="10"></textarea>
+  <script>
+    const textarea = document.querySelector('textarea');
+    textarea.value = localStorage.txt || '';
+
+    function saveText() {
+      localStorage.txt = textarea.value;
+      console.log('SAVED');
+    }
+
+    textarea.addEventListener('input', saveText);
+  </script>
+</body>
+
+</html>

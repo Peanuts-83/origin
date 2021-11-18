@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <title>Premiere app Vue</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+      }
+      #app {
+        background-color: lightblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{ title }}</h1>
+      <h2>Pannier</h2>
+      <ul>
+        <li v-for="elt in shoppingCart">{{ elt.label }}: {{ elt.cost }}€</li>
+      </ul>
+      <h3>TOTAL: {{ totalAmount }}€</h3>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: '#app',
+        data: {
+          title: 'Vue Mart 🥕',
+          shoppingCart: [
+            {label: 'Pomme', cost: 6},
+            {label: 'Banane', cost: 2},
+            {label: 'Coco', cost: 8},
+          ]
+        },
+        computed: {
+          totalAmount() {
+            return this.shoppingCart.reduce((sum, elt) => sum + elt.cost, 0);
+          }
+        }
+      })
+      </script>
+  </body>
+</html>
