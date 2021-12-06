@@ -1,4 +1,5 @@
-import { createStore } from 'vuex'
+import { createStore } from 'vuex';
+import Content from '../assets/content.json';
 
 export default createStore({
   state: {
@@ -7,23 +8,7 @@ export default createStore({
     navWidth: {w0: '25%', w1: '200px', w2: '0'},
     navLevel: 0,
     navSection: 'Home',
-    navSec: {
-      Production: [
-        {name: 'API météo', url: 'https://apimeteo.web.app/'},
-        {name: 'Splah site / Bootstrap', url: 'https://splashsite-ae305.web.app/index.html'},
-        {name: 'Bibliothèque / webApp', url: 'https://firstproject-aa4fd.web.app/books'},
-      ],
-      Skills: [
-        {name: 'Vue.js', url:''},
-        {name: 'Progressive Web App', url:''},
-        {name: 'Bootstrap', url:''},
-        {name: 'GitHub', url:''},
-        {name: 'Docker', url:''},
-        {name: 'Databases SQL/NoSQL', url:''},
-        {name: 'Node.js', url:''},
-        {name: 'Certifications', url:''},
-      ]
-    },
+    navData: Content,
     mouseX: 0,
     navShow: false,
     target: '',
@@ -55,44 +40,58 @@ export default createStore({
     },
   },
   mutations: {
+    // @ detectUserTouch()
     DETECT_TOUCH(state) {
       state.USER_TOUCH = true;
     },
+    // @ activateNav()
     NAV_SECTION(state, name) {
       state.navSection = name;
+      console.log('ACTIVATE_NAV1')
     },
+    // @ activateNav()
     NAV_STATE(state, level) {
       state.navLevel = level;
+      console.log('ACTIVATE_NAV2')
       switch (level) {
         // Nav level 1
         case 1:
           state.navWidth = {w0: '15%', w1: '200px', w2: '200px'};
+          console.log('LEVEL1')
           break;
-        // Nav level 3 showTime with Menu
-        case 2:
-          state.navWidth = {w0: '1%', w1: '50px', w2: '200px'};
-          break;
-        // Nav Level 4 without menu
-        case 3:
-          state.navWidth = {w0: '1%', w1: '50px', w2: '0'};
-          break;
-        // Nav level 0 HomePage
-        default:
-          state.navWidth = {w0: '25%', w1: '200px', w2: '0'};
+          // Nav level 3 showTime with Menu
+          case 2:
+            state.navWidth = {w0: '1%', w1: '50px', w2: '200px'};
+            console.log('LEVEL2')
+            break;
+            // Nav Level 4 without menu
+            case 3:
+              state.navWidth = {w0: '1%', w1: '50px', w2: '0'};
+              console.log('LEVEL3')
+              break;
+              // Nav level 0 HomePage
+              default:
+                state.navWidth = {w0: '25%', w1: '200px', w2: '0'};
+                console.log('LEVEL0')
           break;
       }
     },
+    // @ xCoords()
     X_MOUSE(state, num) {
-      if (state.USER_TOUCH) return;
+      if (state.USER_TOUCH) return;   // no mouse detection for @mouseover if touch screen
+      if (state.navLevel < 2) return;
       state.mouseX = num;
       const showingZone = parseInt(state.navWidth.w2) + 70;
       // console.log('SHOWING_ZONE', showingZone, ' NAV_LEVEL', state.navLevel);
-      if (state.navLevel == 2 && state.mouseX < showingZone) {
+      if (state.mouseX < showingZone && state.mouseX > 70) {
         state.navShow = true;
+        state.navLevel = 2;
       } else {
         state.navShow = false;
+        state.navLevel = 3;
       }
     },
+    // @ setTarget()
     TARGET_URL(state, tgt) {
       state.target = tgt;
       console.log('TARGET',state.target);
@@ -108,16 +107,18 @@ export default createStore({
         };
       }
     },
+    // @ togglenavData() for touch screens
     TOGGLE_NAV(state) {
       state.navShow = !state.navShow;
-      console.log('navShow = ', state.navShow);
+      // console.log('navShow = ', state.navShow);
     },
+    // @ setRouter
     ROUTER_SPECS(state) {
       const windowWidth = window.innerWidth;
       // const windowHeight = window.innerHeight;
       const set0 = Math.round(parseInt(state.navWidth.w0) * windowWidth / 100);
       const set1 = parseInt(state.navWidth.w1);
-
+      console.log('SET0', set0, 'SET1', set1)
       state.specs = {
         xPos: set0 + set1 + 'px',
         info: '30%',
@@ -135,6 +136,7 @@ export default createStore({
       context.commit('DETECT_TOUCH');
     },
     activateNav(context, payload) {
+      console.log('navLevel', payload)
       context.commit('NAV_SECTION', payload.section);
       context.commit('NAV_STATE', payload.level);
     },
@@ -150,7 +152,7 @@ export default createStore({
       // console.log('PAYLOAD',payload);
       context.commit('ROUTER_SPECS');
     },
-    toggleNavSec(context) {
+    togglenavData(context) {
       console.log('TOGGLING');
       context.commit('TOGGLE_NAV');
     }

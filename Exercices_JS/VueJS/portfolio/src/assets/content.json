@@ -1,0 +1,53 @@
+{"Production": [
+  {
+    "name": "API météo",
+    "url": "https://apimeteo.web.app/",
+    "info": {
+      "title": "Create a meteo widget connected to a free meteo API.",
+      "Description": "The main purpose of this job is managing asynchronous requests to an exteranl API. As a second goal, the use of FontAwesome icons makes iconography simplier. ",
+      "Technologies": "Javascript / Bootstrap / FontAwesome",
+      "Documentation": "https://meteo.webboy.fr/"
+    }
+  },
+  {
+    "name": "Splah site / Bootstrap",
+    "url": "https://splashsite-ae305.web.app/index.html"
+  },
+  {
+    "name": "Bibliothèque / webApp",
+    "url": "https://firstproject-aa4fd.web.app/books"
+  }
+],
+"Skills": [
+  {
+    "name": "Vue.js",
+    "url":""
+  },
+  {
+    "name": "Progressive Web App", "url":""
+  },
+  {
+    "name": "Bootstrap",
+    "url":""
+  },
+  {
+    "name": "GitHub",
+    "url":""
+  },
+  {
+    "name": "Docker",
+    "url":""
+  },
+  {
+    "name": "Databases SQL/NoSQL",
+    "url":""
+  },
+  {
+    "name": "Node.js",
+    "url":""
+  },
+  {
+    "name": "Certifications",
+    "url":""
+  }
+]}

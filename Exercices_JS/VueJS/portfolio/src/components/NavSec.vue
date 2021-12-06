@@ -4,12 +4,10 @@
     </div>
 
       <ul :class="{ fadeIn: navLevel >= 1, fadeOut: navLevel < 1}">
-      <!-- <ul :class="{ fadeIn: navLevel >= 1, fadeOut: navLevel < 1}"> -->
-        <li v-for="entry in navSec[navSection]"
+        <li v-for="entry in navData[navSection]"
             :key="entry.index"
             @click="activateNav({ level: 2, section: navSection }),
             setTarget(entry)"  >
-
 
           {{ entry.name }}
 
@@ -25,16 +23,11 @@ import { mapState, mapActions } from "vuex";
 export default {
   name: "NavSec",
   props: ["show"],
-  data() {
-    return {
-      // target:''
-    };
-  },
   computed: {
     ...mapState([
       "navLevel",
       "navSection",
-      "navSec",
+      "navData",
     ]),
   },
   methods: {

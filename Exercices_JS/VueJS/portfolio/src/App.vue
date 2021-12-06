@@ -23,7 +23,8 @@
 
     <!-- Content insert point -->
     <router-view class="insertPoint"
-        :style="{left: specs.xPos}" /> {{ specs.xPos }}
+        :style="{left: specs.xPos}" />
+        <!-- XPOS: {{ specs.xPos }} - LEVEL {{ navLevel }} - TARGET: {{ target }} - Section: {{ navSection }} -->
     <!-- Content insert point -->
   </div>
 </template>
@@ -35,28 +36,12 @@ import NavSec from '@/components/NavSec.vue';
 
 export default {
   name: 'App',
-  // data() {
-  //   return {
-
-  //   }
-  // },
   components: {
     Nav, NavSec
   },
   computed: {
-    ...mapState(["USER_TOUCH",'navLevel', 'navWidth','navShow','specs']),
+    ...mapState(["USER_TOUCH",'navLevel','navSection','navWidth','navShow','specs','target']),
     ...mapGetters(['setBg']),
-    // routerXPos() {
-    //   const set1 = Math.round(parseInt(this.navWidth.w0) * window.innerWidth / 100);
-    //   const set2 = parseInt(this.navWidth.w1);
-    //   const sum = set1 + set2;
-    //   console.log(this.navWidth.w0, 'WindowWidth', window.innerWidth, 'SET1+2', set1+set2)
-    //   return {
-    //     '--router-x-pos': sum + 'px',
-    //     '--window-width': window.innerWidth,
-    //     '--window-height': window.innerHeight,
-    //   };
-  //   }
   },
   methods: {
     ...mapActions(['detectUserTouch','xCoords','setRouter']),

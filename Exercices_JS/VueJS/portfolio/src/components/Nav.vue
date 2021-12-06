@@ -92,6 +92,7 @@
         @click="toggleNavSec" >
         <i class="fas fa-bars"></i>
       </a>
+      <!-- end -->
       <router-link
         to="/"
         class="vertical"

@@ -1,17 +1,22 @@
 <template>
-  <div class="production">
+  <div class="production" @load="info = setInfo">
     <div class="info" v-if="navLevel > 1"
-          :style="{width: specs.info}" >explications projet {{ specs.info }}</div>
+          :style="{width: specs.info}" >
+    {{target}}Hello
+    </div>
+
+
+
     <div class="project"
         :style="{width: specs.iframeWidth, height: specs.iframeHeight}">
       <div>{{ target.name }} {{ specs.routerWidth }}</div>
 
       <div class="iframe">
-      <iframe ref="iframe" :src="target.url"
-          v-if="target.url != ''"
-          frameborder="0" />
-      <!-- TARGET: {{ target }} -->
-      <!-- MOUSEX: {{ mouseX }} -->
+        <iframe ref="iframe" :src="target.url"
+            v-if="target.url != ''"
+            frameborder="0" />
+        <!-- TARGET: {{ target }}
+        MOUSEX: {{ mouseX }} -->
       </div>
 
     </div>
@@ -25,24 +30,11 @@ export default {
   name: "Project",
   data() {
     return {
-      // specsWidth: 0,
+
     }
   },
-  // props: ['target'],
   computed: {
-    ...mapState(['mouseX','navLevel','navWidth','target','specs']),
-    specsWidth() {
-      return (parseInt(this.navWidth.w2) * window.innerWidth /100) +'px';
-    },
-    // cssVars() {
-    //   const width = (parseInt(this.navWidth.w2) * window.innerWidth /100);
-    //   return {
-    //     '--specs-width': width +'px',
-    //     '--project-width': (window.innerWidth - (width + 150)) +'px',
-    //     '--iframe-width': ((window.innerWidth - width) * .75) +'px',
-    //     '--height': window.innerHeight +'px',
-    //   }
-    // }
+    ...mapState(['navLevel','target','specs']),
   },
 }
 </script>
@@ -51,33 +43,33 @@ export default {
   .production {
     display: flex;
     width: 90%;
+    height: 100vh;
     // border: 3px dashed pink;
   }
 
-  // .specs {
-  //   // width: var(--specs-width);
-  // }
+  .info {
+    background: rgba(255,255,255,.5);
+    color: black;
+    border: 3px dashed pink;
+  }
 
   .project {
     display: flex;
     flex-direction: column;
     flex: 1 1 100%;
-    // width: var(--project-width);
-    // height: var(--height);
     background: white;
     text-align: center;
 
     .iframe {
-      width: 100%;
-      height: 100%;
+      width: 90%;
+      height: 90%;
       resize: both;
       overflow: auto;
-      // border: 2px solid;
       padding: 20px;
 
       iframe {
-        width: 100%;
-        height: 100%;
+        width: 95%;
+        height: 95%;
       }
     }
   }
