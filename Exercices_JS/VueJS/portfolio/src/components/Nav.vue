@@ -212,7 +212,10 @@ export default {
 
   .vertical {
     writing-mode: vertical-rl;
-    font-weight: bold;
+    font-weight: 100;
+    font-size: 3em;
+    left: -46px;
+    position: absolute;
     margin-top: 15px;
     height: 100vh;
     text-align: right;

@@ -23,7 +23,8 @@
 
     <!-- Content insert point -->
     <router-view class="insertPoint"
-        :style="{left: specs.xPos}" />
+        :style="{left: specs.xPos}"
+        />
         <!-- XPOS: {{ specs.xPos }} - LEVEL {{ navLevel }} - TARGET: {{ target }} - Section: {{ navSection }} -->
     <!-- Content insert point -->
   </div>
@@ -52,6 +53,7 @@ export default {
 
 <style lang="scss" >
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,400;0,700;0,900;1,100;1,400;1,700;1,900&display=swap');
 
 body {
   margin: 0;
@@ -82,7 +84,7 @@ body {
   background: no-repeat center fixed;
   background-size: cover;
   height: 100%;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Lato;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -141,7 +143,7 @@ a {
   z-index: 0;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 850px) {
   // .container {
   //   flex-direction: column;
   // }

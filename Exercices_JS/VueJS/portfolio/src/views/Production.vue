@@ -1,16 +1,24 @@
 <template>
   <div class="production" @load="info = setInfo">
-    <div class="info" v-if="navLevel > 1"
-          :style="{width: specs.info}" >
-    {{target}}Hello
+    <div class="info" v-if="navLevel > 1" >
+
+      <p class="title">{{target.info.title}}</p>
+      <p class="description">{{target.info.description}}</p>
+      <div class="techTable">
+        <span id="title"><i class="fas fa-tools"></i>TECHNOS</span>
+        <ul class="technologies">
+          <li v-for="tech in target.info.technologies" :key="tech.index">{{tech}} </li>
+        </ul>
+      </div>
+      <div class="documentation" v-if="target.info.documentation">
+        <span>{{target.info.documentation.title}}: </span>
+        <a :href="target.info.documentation.url" target="blank" >
+        <br>  <i class="fas fa-external-link-alt"></i> {{target.info.documentation.url}}</a>
+
+      </div>
     </div>
 
-
-
-    <div class="project"
-        :style="{width: specs.iframeWidth, height: specs.iframeHeight}">
-      <div>{{ target.name }} {{ specs.routerWidth }}</div>
-
+    <div class="project">
       <div class="iframe">
         <iframe ref="iframe" :src="target.url"
             v-if="target.url != ''"
@@ -39,7 +47,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .production {
     display: flex;
     width: 90%;
@@ -50,15 +58,74 @@ export default {
   .info {
     background: rgba(255,255,255,.5);
     color: black;
-    border: 3px dashed pink;
+    text-align: right;
+    margin: 0;
+    width: 30%;
+    // border: 3px dashed pink;
+    .title {
+      background:goldenrod;
+      color: white;
+      text-shadow: 2px 2px 5px black;
+      margin: 0;
+      padding: 20px 10px;
+      font-size: 2em;
+    }
+    .description {
+      padding: 10px;
+      font-size: 1.5em
+      // border-bottom: 1px solid black;
+    }
+    .techTable {
+      background:goldenrod;
+      padding: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: "";
+      #title {
+        text-shadow: 2px 2px 2px black;
+        letter-spacing: 1em;
+        font-weight: 800;
+        color: white;
+        // word-wrap:break-word;
+      }
+      .technologies {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: "";
+        list-style: none;
+        margin: 0;
+        * {
+          padding: 2px;
+          border-bottom: 1px solid black;
+        }
+        *:hover {
+          background: grey;
+        }
+        // text-decoration: none;
+        // border-bottom: 1px solid black;
+      }
+
+    }
+    .documentation {
+      margin: 10px;
+      // border-top: 1px solid black;
+      a {
+        color: black;
+        font-style: italic;
+      }
+      a:hover {
+        color: orangered;
+      }
+    }
   }
 
   .project {
     display: flex;
     flex-direction: column;
     flex: 1 1 100%;
+    width: 70%;
     background: white;
-    text-align: center;
+    // text-align: center;
 
     .iframe {
       width: 90%;
@@ -71,6 +138,23 @@ export default {
         width: 95%;
         height: 95%;
       }
+    }
+  }
+
+  @media(max-width: 850px) {
+    .production {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .info {
+      width: 100%;
+      // margin-right: 5%;
+      text-align: left;
+    }
+    .project {
+      width: 100%;
+      margin: 5%;
     }
   }
 </style>

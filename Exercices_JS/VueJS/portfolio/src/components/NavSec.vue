@@ -37,25 +37,27 @@ export default {
 </script>
 
 <style lang="scss" >
-ul {
-  list-style: none;
-  padding: 0;
-  width: 100%;
-  transition: all 1s;
-  transition-delay: .2s;
+.navSec {
+  ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    transition: all 1s;
+    transition-delay: .2s;
 
-  &.fadeIn {
-    transition: .5s;
-    transition-delay: 1s;
-  }
+    &.fadeIn {
+      transition: .5s;
+      transition-delay: 1s;
+    }
 
-  li {
-    padding: 20px;
-    margin: 0 auto;
+    li {
+      padding: 20px;
+      margin: 0 auto;
 
-    &:hover {
-      cursor: pointer;
-      background: rgba(0, 0, 0, 0.5);
+      &:hover {
+        cursor: pointer;
+        background: rgba(0, 0, 0, 0.5);
+      }
     }
   }
 }

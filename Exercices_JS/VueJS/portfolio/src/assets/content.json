@@ -4,9 +4,12 @@
     "url": "https://apimeteo.web.app/",
     "info": {
       "title": "Create a meteo widget connected to a free meteo API.",
-      "Description": "The main purpose of this job is managing asynchronous requests to an exteranl API. As a second goal, the use of FontAwesome icons makes iconography simplier. ",
-      "Technologies": "Javascript / Bootstrap / FontAwesome",
-      "Documentation": "https://meteo.webboy.fr/"
+      "description": "The main purpose of this job is managing asynchronous requests to an external API. As a second goal, the use of FontAwesome icons makes iconography simplier to manage. ",
+      "technologies": ["Javascript", "Bootstrap", "FontAwesome"],
+      "documentation": {
+        "title": "OpenWeather",
+        "url": "https://openweathermap.org/api"
+      }
     }
   },
   {
