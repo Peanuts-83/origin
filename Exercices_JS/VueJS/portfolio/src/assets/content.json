@@ -1,11 +1,11 @@
 {"Production": [
   {
-    "name": "API météo",
+    "name": "Meteo widget",
     "url": "https://apimeteo.web.app/",
     "info": {
-      "title": "Create a meteo widget connected to a free meteo API.",
-      "description": "The main purpose of this job is managing asynchronous requests to an external API. As a second goal, the use of FontAwesome icons makes iconography simplier to manage. ",
-      "technologies": ["Javascript", "Bootstrap", "FontAwesome"],
+      "title": "Create a meteo widget connected to a free meteo API",
+      "description": "The main purpose of this job is managing asynchronous requests to an external API, using promises or async/await requests with the Fetch API. As a second goal, the use of FontAwesome icons makes iconography simplier to manage. ",
+      "technologies": ["Javascript promises", "Bootstrap", "FontAwesome"],
       "documentation": {
         "title": "OpenWeather",
         "url": "https://openweathermap.org/api"
@@ -13,12 +13,22 @@
     }
   },
   {
-    "name": "Splah site / Bootstrap",
-    "url": "https://splashsite-ae305.web.app/index.html"
+    "name": "Reactive splah site",
+    "url": "https://splashsite-ae305.web.app/index.html",
+    "info": {
+      "title": "Showcase site for commercial purpose",
+      "description": "Reactive structure for a web site dedicated to business & tech activities. The class-based concepts defined by Bootstrap are used here to experiment main components such as navbar, carousel, cards or forms.",
+      "technologies": ["Bootstrap", "jQuery", "FontAwesome"]
+    }
   },
   {
-    "name": "Bibliothèque / webApp",
-    "url": "https://firstproject-aa4fd.web.app/books"
+    "name": "Librairy / webApp",
+    "url": "https://firstproject-aa4fd.web.app/books",
+    "info": {
+      "title": "Online shared librairy",
+      "description": "The concept of shared webApp introduces credentials management in order to enable any user to consult books, but only owners to modify them. Image file management (blob) is also introduced. This webApp is hosted on Firebase which enables easy identification.",
+      "technologies": ["Javascript", "Firebase"]
+    }
   }
 ],
 "Skills": [

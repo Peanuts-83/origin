@@ -8,7 +8,7 @@
         @click="activateNav({ level: 0, section: 'Home' })"
         :class="{ fadeIn: navLevel < 2, fadeOut: navLevel >= 2 }"
       >
-        <div>Thomas RANQUE Dévelopeur Front-end Spécialisé Vue.js</div>
+        <div>Thomas RANQUE <br>Front-end Developer <br> <hr> Vue.js Dedicated Framework</div>
       </router-link>
 
       <!--// INFO: Socials -->
@@ -133,8 +133,12 @@ export default {
 }
 
 .title {
-  font-size: 1em;
-  font-weight: 600;
+  font-size: 1.2em;
+  font-weight: 400;
+  hr {
+
+    margin: 5px 20px;
+  }
   &.router-link-exact-active {
     color: white;
   }
@@ -178,6 +182,7 @@ export default {
   flex-direction: column;
   margin: 5vh 0;
   transition: all .2s;
+  font-size: 1.5em;;
 
   &.fadeIn {
     transition: all 1s;

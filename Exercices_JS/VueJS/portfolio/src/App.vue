@@ -14,6 +14,8 @@
     <Nav class="set1"
       :style="{width: navWidth.w1}" />
 
+      <!-- // TODO: remove set2 to left when fadeout
+            // TODO: production -> supprimer fond blanc + XPos insertPoint-->
     <NavSec class="set2"
       :class="{ fadeIn: navLevel == 1 || navShow, fadeOut: navLevel >= 2 && !navShow }"
       :style="{width: navWidth.w2}"
@@ -129,7 +131,7 @@ a {
 
 .set2 {
   display: flex;
-  background: rgba(0,0,0,.6);
+  background: rgba(0,0,0,.85);
   z-index: 2;
 }
 

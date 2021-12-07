@@ -1,6 +1,6 @@
 <template>
-  <div class="production" @load="info = setInfo">
-    <div class="info" v-if="navLevel > 1" >
+  <div class="production">
+    <div class="info" v-if="navLevel > 1 && target.info" >
 
       <p class="title">{{target.info.title}}</p>
       <p class="description">{{target.info.description}}</p>
@@ -19,6 +19,11 @@
     </div>
 
     <div class="project">
+      <div class="screens">
+        <a href="#"><i class="fas fa-mobile-alt"></i></a>
+        <span>Choose a view mode</span>
+        <a href="#"><i class="fas fa-laptop"></i></a>
+      </div>
       <div class="iframe">
         <iframe ref="iframe" :src="target.url"
             v-if="target.url != ''"
@@ -54,6 +59,15 @@ export default {
     height: 100vh;
     // border: 3px dashed pink;
   }
+
+  a {
+    color: black;
+    font-style: italic;
+  }
+  a:hover {
+    color: orangered;
+    }
+
 
   .info {
     background: rgba(255,255,255,.5);
@@ -100,6 +114,7 @@ export default {
         }
         *:hover {
           background: grey;
+          text-shadow: 0 0 3px white;
         }
         // text-decoration: none;
         // border-bottom: 1px solid black;
@@ -109,22 +124,33 @@ export default {
     .documentation {
       margin: 10px;
       // border-top: 1px solid black;
-      a {
-        color: black;
-        font-style: italic;
-      }
-      a:hover {
-        color: orangered;
-      }
     }
   }
+
+
+  .screens {
+    margin-top: 20px;
+      font-size: 1.5em;
+    a {
+      font-size: 2em;
+      padding: 15px;
+      opacity: .5;
+    }
+    a:hover {
+      opacity: 1;
+    }
+  }
+
 
   .project {
     display: flex;
     flex-direction: column;
+    align-items: center;
     flex: 1 1 100%;
     width: 70%;
     background: white;
+    color: grey;
+    // color: black;
     // text-align: center;
 
     .iframe {
@@ -137,6 +163,7 @@ export default {
       iframe {
         width: 95%;
         height: 95%;
+        border-radius: 5%;
       }
     }
   }

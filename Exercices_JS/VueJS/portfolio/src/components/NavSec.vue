@@ -8,7 +8,7 @@
             :key="entry.index"
             @click="activateNav({ level: 2, section: navSection }),
             setTarget(entry)"  >
-
+          <!-- // TODO: selected section set to yellow/bold -->
           {{ entry.name }}
 
         </li>
@@ -36,11 +36,12 @@ export default {
 };
 </script>
 
-<style lang="scss" >
+<style lang="scss" scoped>
 .navSec {
   ul {
     list-style: none;
     padding: 0;
+    margin: 0;
     width: 100%;
     transition: all 1s;
     transition-delay: .2s;
@@ -53,6 +54,8 @@ export default {
     li {
       padding: 20px;
       margin: 0 auto;
+      font-size: 1.2em;
+      font-weight: 400;
 
       &:hover {
         cursor: pointer;
