@@ -73,7 +73,7 @@ export default {
 
 .todo {
   display: flex;
-  font-size: 1.5em;
+  font-size: 1em;
   justify-content: flex-start;
   padding: 15px 0;
   * {
@@ -118,7 +118,7 @@ export default {
 }
 
 .todo:hover {
-  background: rgba(245,255,255,0.3);
+  background: rgba(0,47,54,0.3);
 }
 
 .done {

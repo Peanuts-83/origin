@@ -43,7 +43,7 @@ export default {
     padding: 5px 5px;
     height: 100%;
     width: 100%;
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: bold;
     color: lightblue;
     background: #002f36;

@@ -38,9 +38,18 @@ export default {
     return {
       title: "Todos!",
       todos:  JSON.parse(localStorage.getItem('todos')) || [
-        { text: "third thing", isDone: false, date: this.newDate(3) },
-        { text: "second thing", isDone: false, date: this.newDate(5) },
-        { text: "first thing", isDone: true, date: this.newDate(12) },
+        { text: "Todo app reminds important things to do...",
+          isDone: false,
+          date: this.newDate(3) },
+        { text: "Default tasks are displayed if local storage is empty, but any modification stores tasks in local storage to enable persistent data.",
+          isDone: false,
+          date: this.newDate(5) },
+        { text: "Existing tasks can be edited by double-click, saved with 'ENTER' or 'blur', unchanged with 'ESC'.",
+          isDone: false,
+          date: this.newDate(12) },
+        { text: "Exemple of done task.",
+        isDone: true,
+        date: this.newDate(12) },
       ],
       showTodos: this.todos,
       selection: 'All',
@@ -116,13 +125,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #002f36;
-  margin-top: 60px;
+  margin: 60px 10px;
 }
 
 .title {
-  font-size: 20vw;
+  font-size: 15vh;
   color: white;
   text-shadow: 0.02em 0.04em 5px #2c3e50;
+  // border: 1px dashed red;
 }
 
 .container {
@@ -138,7 +148,7 @@ body {
   border-radius: 10px;
   border-bottom-right-radius: 0;
   box-shadow: 10px 10px 5px rgba(39, 50, 71, 0.6);
-  background: rgba(245, 255, 255, 0.5);
+  background: rgba(245, 255, 255, 0.7);
   margin-bottom: 20px;
 
   .todoList {
