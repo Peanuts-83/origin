@@ -3,17 +3,18 @@
     <div class="info">
     </div>
 
-      <ul :class="{ fadeIn: navLevel >= 1, fadeOut: navLevel < 1}">
+      <ul :class="{translateIn: navLevel >= 1, translateOut: navLevel < 1}">
         <li v-for="entry in navData[navSection]"
             :key="entry.index"
             @click="activateNav({ level: 2, section: navSection }),
             setTarget(entry)"  >
           <!-- // TODO: selected section set to yellow/bold -->
+          <router-link :class="{active: entry.name == target.name}"
+        :to="navSection">
           {{ entry.name }}
-
+          </router-link>
         </li>
       </ul>
-
   </div>
 </template>
 
@@ -28,6 +29,7 @@ export default {
       "navLevel",
       "navSection",
       "navData",
+      "target"
     ]),
   },
   methods: {
@@ -43,13 +45,13 @@ export default {
     padding: 0;
     margin: 0;
     width: 100%;
-    transition: all 1s;
-    transition-delay: .2s;
+    transition: all .5s;
+    transition-delay: .5s;
 
-    &.fadeIn {
-      transition: .5s;
-      transition-delay: 1s;
-    }
+    // &.fadeIn {
+    //   transition: .5s;
+    //   transition-delay: 3s;
+    // }
 
     li {
       padding: 20px;

@@ -1,8 +1,14 @@
 <template>
-  <div class="production">
+  <div :class="{ fadeIn: navLevel >= 2, fadeOut: navLevel < 2 , production: true}">
     <div class="info" v-if="navLevel > 1 && target.info" >
 
-      <p class="title">{{target.info.title}}</p>
+      <p class="title">
+        {{target.info.title}}
+        <br>
+        <a :href="target.url" target="blank">
+          <i class="fas fa-external-link-alt"></i>
+        </a>
+        </p>
       <p class="description">{{target.info.description}}</p>
       <div class="techTable">
         <span id="title"><i class="fas fa-tools"></i>TECHNOS</span>
@@ -11,21 +17,23 @@
         </ul>
       </div>
       <div class="documentation" v-if="target.info.documentation">
-        <span>{{target.info.documentation.title}}: </span>
+        <span id="title">{{target.info.documentation.title}}: </span>
         <a :href="target.info.documentation.url" target="blank" >
-        <br>  <i class="fas fa-external-link-alt"></i> {{target.info.documentation.url}}</a>
+        <br> <i class="fas fa-external-link-alt"></i> {{target.info.documentation.url}}</a>
 
       </div>
     </div>
 
     <div class="project">
+      {{mouseX}} - {{navLevel}} - {{navWidth.w2}} - {{target.name}}
       <div class="screens">
-        <a href="#"><i class="fas fa-mobile-alt"></i></a>
-        <span>Choose a view mode</span>
-        <a href="#"><i class="fas fa-laptop"></i></a>
+        <a href="#" @click.prevent="setIFrame({width: '375px', height: '812px'})"><i class="fas fa-mobile-alt"></i></a>
+        <span>Choose view mode</span>
+        <a href="#" @click.prevent="setIFrame({width: '95%', height: '95%'})"><i class="fas fa-laptop"></i></a>
       </div>
       <div class="iframe">
-        <iframe ref="iframe" :src="target.url"
+        <iframe ref="iframe" loading="lazy" :src="target.url"
+            :style="{width: specs.iframeWidth, height: specs.iframeHeight}"
             v-if="target.url != ''"
             frameborder="0" />
         <!-- TARGET: {{ target }}
@@ -37,18 +45,32 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 
 export default {
   name: "Project",
-  data() {
-    return {
-
-    }
-  },
   computed: {
-    ...mapState(['navLevel','target','specs']),
+    ...mapState(['navLevel','target','specs', 'mouseX', 'navWidth']),
   },
+  methods: {
+    ...mapActions(['setIFrame'])
+    // lazyloading for iframes using data-src in place of src
+    // iframeUrl() {
+    //   if ('loading' in HTMLIFrameElement.prototype) {
+    //     console.log('iFrame lazyloading ok!');
+    //     const iframes = document.querySelectorAll('iframe[loading="lazy"]');
+    //     iframes.forEach(iframe => {
+    //       iframe.src = iframe.dataset.src;
+    //     })
+    //   } else {
+    //     // Dynamic import LazySizes librairy
+    //     console.log('iFrame loading with LAZYSIZES script import...');
+    //     const script = document.createElement('script');
+    //     script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js';
+    //     document.body.appendChild(script);
+    //   }
+    // }
+  }
 }
 </script>
 
@@ -56,7 +78,8 @@ export default {
   .production {
     display: flex;
     width: 90%;
-    height: 100vh;
+    height: 120vh;
+    // opacity: 0;
     // border: 3px dashed pink;
   }
 
@@ -75,20 +98,26 @@ export default {
     text-align: right;
     margin: 0;
     width: 30%;
-    // border: 3px dashed pink;
+
     .title {
       background:goldenrod;
       color: white;
-      text-shadow: 2px 2px 5px black;
+      text-shadow: 2px 2px 3px black;
+      font-weight: 800;
+      font-size: 2em;
       margin: 0;
       padding: 20px 10px;
-      font-size: 2em;
+      i {
+        font-size: 1em;
+      }
     }
+
     .description {
       padding: 10px;
-      font-size: 1.5em
+      font-size: 1.1em;
       // border-bottom: 1px solid black;
     }
+
     .techTable {
       background:goldenrod;
       padding: 10px;
@@ -100,29 +129,28 @@ export default {
         letter-spacing: 1em;
         font-weight: 800;
         color: white;
-        // word-wrap:break-word;
       }
       .technologies {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: "";
         list-style: none;
-        margin: 0;
         * {
-          padding: 2px;
+          padding: 2px 5px;
           border-bottom: 1px solid black;
         }
         *:hover {
           background: grey;
-          text-shadow: 0 0 3px white;
+          text-shadow: 0 0 4px white;
         }
-        // text-decoration: none;
-        // border-bottom: 1px solid black;
       }
-
     }
+
     .documentation {
       margin: 10px;
+      #title {
+        font-weight: bold;
+      }
       // border-top: 1px solid black;
     }
   }
@@ -130,7 +158,7 @@ export default {
 
   .screens {
     margin-top: 20px;
-      font-size: 1.5em;
+    font-size: 1.5em;
     a {
       font-size: 2em;
       padding: 15px;
@@ -156,14 +184,16 @@ export default {
     .iframe {
       width: 90%;
       height: 90%;
-      resize: both;
+      // resize: both;
       overflow: auto;
-      padding: 20px;
+      padding: 10px 3%;
 
       iframe {
-        width: 95%;
-        height: 95%;
-        border-radius: 5%;
+        // width: 95%;
+        // height: 95%;
+        transition: 1s;
+        border-radius: 30px;
+        border: 1px dashed grey;
       }
     }
   }
@@ -181,7 +211,7 @@ export default {
     }
     .project {
       width: 100%;
-      margin: 5%;
+      // margin: 5%;
     }
   }
 </style>

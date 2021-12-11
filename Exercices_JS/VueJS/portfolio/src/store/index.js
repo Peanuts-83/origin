@@ -4,6 +4,7 @@ import Content from '../assets/content.json';
 export default createStore({
   state: {
     backgrounds: [],
+    bgImg: false,
     USER_TOUCH: false,
     navWidth: {w0: '25%', w1: '200px', w2: '0'},
     navLevel: 0,
@@ -22,24 +23,60 @@ export default createStore({
     },
 
   },
-  beforeMount() {
-    // TODO: Preload BG Image
-
-  },
   getters: {
-    // Choose random bg image
     setBg(state) {
+      if (state.bgImg) return;
       const bg = require.context(
         '@/assets/images/bgds',
           true,
           /^.*\.jpg$/
       )
-      state.backgrounds = bg.keys().map(key => bg(key));
-      let index = Math.round(Math.random() * state.backgrounds.length);
-      return state.backgrounds[index];
+      state.backgrounds =  bg.keys().map(key => bg(key));
+      let index = Math.round(Math.random() * state.backgrounds.length) -1;
+      index >= 0 ? index : index = 0;
+
+      function preload(array, i) {
+        let img = new Image;
+        img.src = array[i];
+        state.bgImg = `url("${img.src}")`
+        console.log('BACKGROUND', state.bgImg);
+        array.forEach((image,i, arr) => {
+          let img = new Image;
+          img.src = arr[i];
+          console.log('BG PRELOADED', img);
+        });
+      }
+
+      preload(state.backgrounds, index);
+      // const background = state.backgrounds[index];
+      // state.bgImg = `url('${background}')`;
+
+
     },
   },
   mutations: {
+    // @ setBg
+    BACKGROUND_IMG(state) {
+      if (state.bgImg) return;
+      const bg = require.context(
+        '@/assets/images/bgds',
+          true,
+          /^.*\.jpg$/
+      )
+      state.backgrounds =  bg.keys().map(key => bg(key));
+      let index = Math.round(Math.random() * state.backgrounds.length) -1;
+      index >= 0 ? index : index = 0;
+
+      function preload(array, i) {
+        let img = new Image;
+        img.src = array[i];
+        console.log('BACKGROUND', img);
+      }
+
+      preload(state.backgrounds, index);
+      const background = state.backgrounds[index];
+      state.bgImg = `url('${background}')`;
+    },
     // @ detectUserTouch()
     DETECT_TOUCH(state) {
       state.USER_TOUCH = true;
@@ -59,14 +96,14 @@ export default createStore({
           state.navWidth = {w0: '15%', w1: '200px', w2: '200px'};
           console.log('LEVEL1')
           break;
-          // Nav level 3 showTime with Menu
+          // Nav level 2 showTime with Menu
           case 2:
-            state.navWidth = {w0: '1%', w1: '50px', w2: '200px'};
+            state.navWidth = {w0: '0%', w1: '50px', w2: '200px'};
             console.log('LEVEL2')
             break;
-            // Nav Level 4 without menu
+            // Nav Level 3 without menu
             case 3:
-              state.navWidth = {w0: '1%', w1: '50px', w2: '0'};
+              state.navWidth = {w0: '0%', w1: '50px', w2: '0'};
               console.log('LEVEL3')
               break;
               // Nav level 0 HomePage
@@ -81,12 +118,12 @@ export default createStore({
       if (state.USER_TOUCH) return;   // no mouse detection for @mouseover if touch screen
       if (state.navLevel < 2) return;
       state.mouseX = num;
-      const showingZone = parseInt(state.navWidth.w2) + 70;
+      const showingZone = 70;
       // console.log('SHOWING_ZONE', showingZone, ' NAV_LEVEL', state.navLevel);
-      if (state.mouseX < showingZone && state.mouseX > 70) {
+      if (state.mouseX < showingZone ) {
         state.navShow = true;
         state.navLevel = 2;
-      } else {
+      } else if (state.mouseX > parseInt(state.navWidth.w2)) {
         state.navShow = false;
         state.navLevel = 3;
       }
@@ -120,7 +157,7 @@ export default createStore({
       const set1 = parseInt(state.navWidth.w1);
       console.log('SET0', set0, 'SET1', set1)
       state.specs = {
-        xPos: set0 + set1 + 'px',
+        xPos: set1 + 'px',
         info: '30%',
         routerWidth: '100%',
         routerHeight: '100vh',
@@ -129,14 +166,26 @@ export default createStore({
       };
       console.log('ROUTER_SPECS',state.specs);
     },
+    // @ setIFrame
+    IFRAME_CHANGER(state, data) {
+      const width = data.width;
+      const height = data.height;
+      state.specs.iframeWidth = width;
+      state.specs.iframeHeight = height;
+      console.log('IFRAME CHANGED', state.specs);
+    }
   },
   actions: {
+    setBg(context) {
+      console.log('BG SETTING');
+      context.commit('BACKGROUND_IMG');
+    },
     detectUserTouch(context) {
-      console.log('TOUCH DETECTED!');
+      // console.log('TOUCH DETECTED!');
       context.commit('DETECT_TOUCH');
     },
     activateNav(context, payload) {
-      console.log('navLevel', payload)
+      // console.log('navLevel', payload)
       context.commit('NAV_SECTION', payload.section);
       context.commit('NAV_STATE', payload.level);
     },
@@ -153,8 +202,12 @@ export default createStore({
       context.commit('ROUTER_SPECS');
     },
     togglenavData(context) {
-      console.log('TOGGLING');
+      // console.log('TOGGLING');
       context.commit('TOGGLE_NAV');
+    },
+    setIFrame(context, payload) {
+      // console.log('IFRAME NEW DATA',payload);
+      context.commit('IFRAME_CHANGER', payload);
     }
   },
   modules: {

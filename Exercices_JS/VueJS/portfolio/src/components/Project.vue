@@ -7,6 +7,9 @@ export default {
   name: "showTime",
   function(resolve,reject) {
     resolve({
+
+    }),
+    reject({
       
     })
   }

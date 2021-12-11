@@ -1,12 +1,12 @@
 <template>
   <div class="container"
-      :style="{background: `#2f7b92 url(${setBg})`}"
+      :style="{'--bg-img': bgImg}"
       @mousemove="xCoords"
       @touchstart="detectUserTouch"
       >
 
     <div class="set0"
-      :style="{background: `url(${setBg})`, width: navWidth.w0}" >
+      :style="{width: navWidth.w0}" >
         <div class="info">
     </div>
     </div>
@@ -14,10 +14,8 @@
     <Nav class="set1"
       :style="{width: navWidth.w1}" />
 
-      <!-- // TODO: remove set2 to left when fadeout
-            // TODO: production -> supprimer fond blanc + XPos insertPoint-->
     <NavSec class="set2"
-      :class="{ fadeIn: navLevel == 1 || navShow, fadeOut: navLevel >= 2 && !navShow }"
+      :class="{ translateIn: navLevel == 1 || navShow, translateOut: navLevel >= 2 && !navShow }"
       :style="{width: navWidth.w2}"
       :v-if="navLevel > 0"
       @click="setRouter" />
@@ -42,13 +40,23 @@ export default {
   components: {
     Nav, NavSec
   },
+  data() {
+    return {
+      // bg: 'url("../assets/images/bgds/pexels-miguel-lights.jpg")',
+    }
+  },
+  mounted() {
+    // scan img folder to fill backgrounds Array and set bgImg
+    console.log('CREATED FIRED!');
+    this.setBg;
+  },
   computed: {
-    ...mapState(["USER_TOUCH",'navLevel','navSection','navWidth','navShow','specs','target']),
+    ...mapState(['USER_TOUCH','bgImg','navLevel','navSection','navWidth','navShow','specs','target']),
     ...mapGetters(['setBg']),
   },
   methods: {
     ...mapActions(['detectUserTouch','xCoords','setRouter']),
-  }
+  },
 }
 </script>
 
@@ -71,7 +79,7 @@ body {
 }
 
 .translateOut {
-  transform: translateX(-100px);
+  transform: translateX(-200px);
   opacity: 0;
 }
 .translateIn {
@@ -83,14 +91,17 @@ body {
 .container {
   display: flex;
   justify-content: flex-start;
-  background: no-repeat center fixed;
+  background: var(--bg-img);
   background-size: cover;
-  height: 100%;
+  background-repeat: no-repeat;
+  // background-position: center center;
+  min-height: 100%;
   font-family: Lato;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: black;
+  // border: 3px dashed pink;
 }
 
 a {
@@ -99,25 +110,27 @@ a {
   &:hover {
     color: goldenrod;
   }
-  &.router-link-exact-active {
-      color: goldenrod;
-      font-weight: 800;
-    }
+}
+
+.active {
+  color: goldenrod;
+  font-weight: bold;
 }
 
 .set0,
 .set1,
 .set2 {
   height: 100vh;
-  transition: all 1s;
+  transition: all .7s;
   background: black;
   color: white;
 }
 
 
 .set0 {
-  // flex-shrink: 10;
+  background: var(--bg-img);
   background-size: cover;
+  background-repeat: no-repeat;
   filter: blur(8px);
   -webkit-filter: blur(3px);
   opacity: 1;
@@ -127,12 +140,13 @@ a {
   display: flex;
   flex-direction: column;
   z-index: 2;
+  // border: 3px dotted green;
 }
 
 .set2 {
   display: flex;
   background: rgba(0,0,0,.85);
-  z-index: 2;
+  z-index: 1;
 }
 
 .insertPoint {
@@ -149,7 +163,10 @@ a {
   // .container {
   //   flex-direction: column;
   // }
-  .set0 { display: none;}
+  .set0 {
+    display: none;
+    opacity: 0;
+  }
 }
 
 </style>

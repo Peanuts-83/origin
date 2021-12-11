@@ -5,9 +5,9 @@
     "info": {
       "title": "Create a meteo widget connected to a free meteo API",
       "description": "The main purpose of this job is managing asynchronous requests to an external API, using promises or async/await requests with the Fetch API. As a second goal, the use of FontAwesome icons makes iconography simplier to manage. ",
-      "technologies": ["Javascript promises", "Bootstrap", "FontAwesome"],
+      "technologies": ["Asynchronous Javascript", "Bootstrap", "FontAwesome"],
       "documentation": {
-        "title": "OpenWeather",
+        "title": "Source API from OpenWeather",
         "url": "https://openweathermap.org/api"
       }
     }
@@ -26,8 +26,17 @@
     "url": "https://firstproject-aa4fd.web.app/books",
     "info": {
       "title": "Online shared librairy",
-      "description": "The concept of shared webApp introduces credentials management in order to enable any user to consult books, but only owners to modify them. Image file management (blob) is also introduced. This webApp is hosted on Firebase which enables easy identification.",
-      "technologies": ["Javascript", "Firebase"]
+      "description": "The concept of shared webApp introduces credentials management in order to enable any user to consult books, but only owners to modify them. Image file management (blob) on server is also set. This webApp is hosted on Firebase which enables easy identification process and persistent data.",
+      "technologies": ["Javascript", "Firebase", "Credentials"]
+    }
+  },
+  {
+    "name": "Todo List",
+    "url": "https://peanutstodos.web.app/",
+    "info": {
+      "title": "Todo List widget",
+      "description": "Persistent webApp displaying tasks to do. Filtering functions enabled. Tasks can be modified or created by user. Deleting is possible task by task, or by type 'completed'.",
+      "technologies": ["Javascript", "Local storage"]
     }
   }
 ],

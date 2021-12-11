@@ -67,26 +67,27 @@
 
     <!-- // INFO: Nav section -->
     <div class="nav" :class="{ fadeIn: navLevel < 2, fadeOut: navLevel >= 2 }">
-      <router-link
-        to="/production"
-        @click="activateNav({ level: 1, section: 'Production' })"
+      <a href="#" :class="{active: navSection == 'Production'}"
+        @click.prevent="activateNav({ level: 1, section: 'Production' })"
       >
         Production
-      </router-link>
+      </a>
       <router-link
-        to="/skills"
+        to="/skills" :class="{active: navSection == 'Skills'}"
         @click="activateNav({ level: 1, section: 'Skills' })"
       >
         Skills
       </router-link>
-      <router-link to="/cv" @click="activateNav({ level: 3, section: 'CV' })">
+      <router-link to="/cv" :class="{active: navSection == 'CV'}"     @click="activateNav({ level: 3, section: 'CV' })">
         CV
       </router-link>
     </div>
 
     <!-- // INFO: Vertical title & menu icon  -->
-    <div class="miniNav" :class="{ slide: navLevel >= 2 }">
+    <div
+    class="miniNav" :class="{ slide: navLevel >= 2 }">
        <!-- menu ONLY if touchScreen -->
+        <!-- // TODO: fixed vertical nav! -->
       <a class="menu"
         v-if="USER_TOUCH"
         @click="toggleNavSec" >
@@ -95,10 +96,10 @@
       <!-- end -->
       <router-link
         to="/"
-        class="vertical"
         @click="activateNav({ level: 0, section: 'Home' }), setTarget('')"
+        class="vertical"
       >
-        <p v-if="navSection != 'Home'">{{ navSection }}</p>
+        <span v-if="navSection != 'Home'">{{ navSection }}</span>
       </router-link>
     </div>
   </div>
@@ -124,10 +125,11 @@ export default {
 };
 </script>
 
-<style lang="scss" >
+<style lang="scss">
 .navPrim {
   display: flex;
   flex-direction: column;
+  height: 100%;
   text-align: center;
   color: white;
 }
@@ -209,7 +211,7 @@ export default {
   // border: 3px dashed pink;
 
   .menu  {
-    font-size: 1.5em;
+    font-size: 1.8em;
     padding: 15px;
     margin-top: 15px;
     // border: 1px dashed green;
@@ -219,20 +221,21 @@ export default {
     writing-mode: vertical-rl;
     font-weight: 100;
     font-size: 3em;
-    left: -46px;
+    * {
+      overflow: hidden;
+    }
+    overflow: hidden;
+    left: -5px;
     position: absolute;
-    margin-top: 15px;
-    height: 100vh;
+    margin-top: 40px;
+    height: 100%;
     text-align: right;
     transform: rotate(180deg);
-  }
-  &:hover {
-    background: rgba(255, 255, 255, 0.2);
   }
 
   &.slide {
     display: block;
-    height: 100vh;
+    height: 100%;
     transform: translateY(150px) ;
     opacity: 1;
     cursor: pointer;
