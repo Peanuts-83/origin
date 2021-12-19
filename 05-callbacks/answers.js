@@ -1,6 +1,6 @@
 /**
- * @param {string} email 
- * @param {string} password 
+ * @param {string} email
+ * @param {string} password
  * @returns {User | undefined}
  */
 function passwordChecker(email, password){
@@ -11,9 +11,9 @@ function passwordChecker(email, password){
 }
 
 /**
- * @param {string} email 
- * @param {string} password 
- * @param {nodeStyleCallback} cb 
+ * @param {string} email
+ * @param {string} password
+ * @param {nodeStyleCallback} cb
  */
 function passwordCheckerCb(email, password, cb){
   const user = passwordChecker(email, password);
@@ -29,34 +29,47 @@ function passwordCheckerCb(email, password, cb){
 /**
  *
  * EXERCISE 1:
- * 
- * @param {string} email 
- * @param {string} password 
+ *
+ * @param {string} email
+ * @param {string} password
  * @returns {Promise<User, string>}
  */
 function passwordCheckerPrms(email, password){
   return new Promise((resolve, reject) => {
     passwordCheckerCb(email, password, (error, user) => {
-      /* IMPLEMENT ME! */
+      if (error) {
+        reject(error);
+      } else if (user) {
+        resolve(user);
+      }
     });
   });
 }
 
 /**
- * 
+ *
  * EXERCISE 2
- * 
+ *
  * @param {callbackStyleAsyncFunction} fn
- * @param {*} fnParams 
+ * @param {*} fnParams
  * @return {Promise<any, any>}
  */
 function makePromiseFromFunctionWithCallback(fn, ...fnParams){
-  /* 
-  Return a promise that 
+  /*
+  Return a promise that
     - calls fn with the fnParams and a callback (like fn(...fnParams, cb))
     - resolves with a value if the callback succeeds
     - rejects with an error if the callback fails
   */
+  return new Promise((resolve, reject) => {
+    fn(...fnParams, (error, result) => {
+      if (error) {
+        reject(error);
+      } else if (result) {
+        resolve(result);
+      }
+    });
+  });
 }
 
 /**
