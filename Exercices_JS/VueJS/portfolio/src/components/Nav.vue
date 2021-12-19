@@ -85,7 +85,7 @@
 
     <!-- // INFO: Vertical title & menu icon  -->
     <div
-    class="miniNav" :class="{ slide: navLevel >= 2 }">
+    :class="{ miniNav: 'miniNav', slide: navLevel >= 2 }">
        <!-- menu ONLY if touchScreen -->
         <!-- // TODO: fixed vertical nav! -->
       <a class="menu"
@@ -217,7 +217,15 @@ export default {
     // border: 1px dashed green;
   }
 
+  .miniNav {
+    position: fixed;
+    top: 100px;
+    border: 3px dashed pink;
+    height: 100vh;
+  }
+
   .vertical {
+    position: fixed;
     writing-mode: vertical-rl;
     font-weight: 100;
     font-size: 3em;
@@ -228,14 +236,14 @@ export default {
     left: -5px;
     position: absolute;
     margin-top: 40px;
-    height: 100%;
+    height: 100vh;
     text-align: right;
     transform: rotate(180deg);
   }
 
   &.slide {
     display: block;
-    height: 100%;
+    // height: 100vh;
     transform: translateY(150px) ;
     opacity: 1;
     cursor: pointer;

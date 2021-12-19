@@ -35,7 +35,7 @@
     "url": "https://peanutstodos.web.app/",
     "info": {
       "title": "Todo List widget",
-      "description": "Persistent webApp displaying tasks to do. Filtering functions enabled. Tasks can be modified or created by user. Deleting is possible task by task, or by type 'completed'.",
+      "description": "Persistent webApp displaying tasks to do. Filtering functions are enabled with buttons at the bottom of the app. Tasks can be modified or created by user. Deleting is possible task by task, or globaly by type 'completed'.",
       "technologies": ["Javascript", "Local storage"]
     }
   }

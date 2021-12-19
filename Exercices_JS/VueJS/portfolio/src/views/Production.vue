@@ -78,7 +78,7 @@ export default {
   .production {
     display: flex;
     width: 90%;
-    height: 120vh;
+    height: 100vh;
     // opacity: 0;
     // border: 3px dashed pink;
   }
@@ -175,7 +175,7 @@ export default {
     flex-direction: column;
     align-items: center;
     flex: 1 1 100%;
-    width: 70%;
+    // width: 70%;
     background: white;
     color: grey;
     // color: black;
@@ -203,6 +203,8 @@ export default {
       display: flex;
       flex-direction: column;
       align-items: center;
+      width: 90%;
+      height: 760px;
     }
     .info {
       width: 100%;
@@ -211,7 +213,21 @@ export default {
     }
     .project {
       width: 100%;
+      height: 760px;
+      margin-right: 20px;
       // margin: 5%;
+    }
+    .screens {
+      display: none;
+    }
+    .iframe {
+      width: 100%;
+      height: 760px;
+      iframe {
+        height: 760px;
+        border: none;
+        border-radius: 0px;
+      }
     }
   }
 </style>

@@ -65,9 +65,14 @@ export default {
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css");
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,400;0,700;0,900;1,100;1,400;1,700;1,900&display=swap');
 
+html {
+  height: 100%;
+}
 body {
   margin: 0;
   padding: 0;
+  min-height: 100%;
+  // border: 5px dotted red;
 }
 
 // Transitions //
@@ -91,11 +96,12 @@ body {
 .container {
   display: flex;
   justify-content: flex-start;
+  align-items: stretch;
   background: var(--bg-img);
   background-size: cover;
   background-repeat: no-repeat;
   // background-position: center center;
-  min-height: 100%;
+  height: 100vh;
   font-family: Lato;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
