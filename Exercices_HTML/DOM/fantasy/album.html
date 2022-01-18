@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Album photo</title>
+    <style>
+        body {
+            display: flex;
+            flex-flow: column nowrap;
+            background-color: grey;
+            width: 100rem;
+            margin: 0 auto;
+            height: 100vh;
+        }
+        h1 {
+            text-align: center;
+            color: white;
+            height: 2rem;
+        }
+        .album {
+            background-color: white;
+            display: flex;
+            flex-flow: column nowrap;
+            width: 90rem;
+            flex-grow:1 ;
+            margin: 0 auto;
+        }
+        #vignettes {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: flex-start;
+            height: 3rem;
+            margin: 0 auto;
+            align-self:center;
+        }
+        .vignette {
+            flex-shrink: 1;
+            height: 3rem;
+            margin: 0 0.5rem;
+            padding: 0;
+        }
+        #ecran {
+            width: 40rem;
+            height: 20rem;
+            margin: 1rem auto;
+        }
+        footer {
+            width: 90rem;
+            height: 2rem;
+            background-color: #333;
+            color: grey;
+            text-align: right;
+            margin: 0 auto;
+        }
+        #add {
+            width: 4rem;
+            align-self: center;
+        }
+    </style>
+    <!-- // TODO: Inclusion de vos scripts ici -->
+    <script type='module'>
+        let images = [];
+        for (let i = 1; i <= 5; i++) {
+            images.push(`fantasy-${i}.jpg`)
+        }
+        console.log(images);
+        let ecran = document.querySelector('#ecran');
+        let vignettes = document.querySelector('#vignettes');
+        let bt = document.querySelector('#add');
+
+        let vignetteNum = 0;
+        addVignette();
+
+        function addVignette() {
+            let vignette = document.createElement('img', {'width': '100px'});
+            vignette.src = `./images/${images[vignetteNum]}`;
+            ecran.src = `./images/${images[0]}`;
+            vignettes.appendChild(vignette);
+            vignetteNum = vignettes.children.length;
+            console.log('Nbre de vignettes:', vignetteNum);
+        }
+
+        //ecran.addEventListener('change', () => {vignette.src = ecran.src});
+        vignettes.childNodes.forEach(vign => vign.addEventListener('mouseup', () => {ecran.src = vign.src}));
+        bt.addEventListener('mouseup', addVignette());
+    </script>;
+
+
+</head>
+<body>
+    <h1>Album photos</h1>
+    <section class="album">
+        <img id="ecran" src="" alt="">
+        <button type="button" id="add">+</button>
+        <div id="vignettes">
+            <!-- TODO: votre script placera les vignettes ici comme suit : <img class="vignette" src="" alt=""> -->
+        </div>
+    </section>
+    <footer>(Source: PIXABAY, Illustrateur: Stefan Keller)</footer>
+</body>
+</html>

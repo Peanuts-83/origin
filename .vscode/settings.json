@@ -22,5 +22,6 @@
     "liveServer.settings.useBrowserPreview": true,
     "browser-preview.format": "png",
     "liveServer.settings.showOnStatusbar": false,
-    "python.linting.banditEnabled": true
+    "python.linting.banditEnabled": true,
+    "liveServer.settings.port": 5501
 }
