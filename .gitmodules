@@ -4,3 +4,6 @@
 [submodule "Exercices_JS/debuggez-l-interface-de-votre-site"]
 	path = Exercices_JS/debuggez-l-interface-de-votre-site
 	url = git@github.com:Peanuts-83/debuggez-l-interface-de-votre-site.git
+[submodule "Exercices_JS/testez-vos-applications-front-end-avec-javascript"]
+	path = Exercices_JS/testez-vos-applications-front-end-avec-javascript
+	url = git@github.com:Peanuts-83/testez-vos-applications-front-end-avec-javascript.git
