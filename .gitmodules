@@ -7,3 +7,9 @@
 [submodule "Exercices_JS/testez-vos-applications-front-end-avec-javascript"]
 	path = Exercices_JS/testez-vos-applications-front-end-avec-javascript
 	url = git@github.com:Peanuts-83/testez-vos-applications-front-end-avec-javascript.git
+[submodule "Exercices_JS/7150606-React-intermediaire"]
+	path = Exercices_JS/7150606-React-intermediaire
+	url = git@github.com:OpenClassrooms-Student-Center/7150606-React-intermediaire.git
+[submodule "Exercices_JS/7008001-Debutez-avec-React"]
+	path = Exercices_JS/7008001-Debutez-avec-React
+	url = git@github.com:OpenClassrooms-Student-Center/7008001-Debutez-avec-React.git
