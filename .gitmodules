@@ -13,3 +13,9 @@
 [submodule "Exercices_JS/7008001-Debutez-avec-React"]
 	path = Exercices_JS/7008001-Debutez-avec-React
 	url = git@github.com:OpenClassrooms-Student-Center/7008001-Debutez-avec-React.git
+[submodule "Exercices_JS/Jest-repos_collegues/DouglasMeunier_9_16062021"]
+	path = Exercices_JS/Jest-repos_collegues/DouglasMeunier_9_16062021
+	url = git@github.com:codbear/DouglasMeunier_9_16062021.git
+[submodule "Exercices_JS/Jest-repos_collegues/Billed-app-EN"]
+	path = Exercices_JS/Jest-repos_collegues/Billed-app-EN
+	url = git@github.com:OpenClassrooms-Student-Center/Billed-app-EN.git
