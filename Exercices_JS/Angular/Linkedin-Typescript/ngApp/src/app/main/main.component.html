@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="images">
+        <div class="imageContainer" *ngFor="let imgSrc of images; let i = index">
+            <p>{{i}}</p>
+            <img src="{{imgSrc}}" alt="peanuts" class="image">
+        </div>
+    </div>
+    <button class="submitBtn" (click)="userClick()">
+        Click me
+    </button>
+</div>

@@ -1,0 +1,27 @@
+p {
+  font-family: monospace;
+}
+
+.submitBtn {
+  border-radius: 2px;
+  border: 1px none;
+  background-color: chocolate;
+  color: white;
+  padding: 5px 10px;
+}
+
+.images {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.imageContainer {
+  display: flex;
+  align-items: flex-start;
+  padding: 5%;
+}
+
+.image {
+  width: 100%;
+  align-self: center;
+}

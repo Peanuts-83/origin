@@ -1,0 +1,10 @@
+
+<nav>
+    <a routerLink="/home" routerLinkActive="activeLink">Accueil</a>
+    <a routerLink="/user" routerLinkActive="activeLink">Profil</a>
+    <a routerLink="/trains" routerLinkActive="activeLink">Trains</a>
+    <span>
+        {{date | date: 'short'}}
+    </span>
+</nav>
+<router-outlet></router-outlet>

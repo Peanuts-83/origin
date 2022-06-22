@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    padding: 0;
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    font-family: monospace;
+    background-color: #333;
+    padding: 10px;
+    color: white;
+}
+
+.activeLink {
+    color: white;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+a {
+    font-size: 1.5em;
+    color:white;
+    text-decoration: none;
+}
+
+.container {
+    padding: 20px;
+}

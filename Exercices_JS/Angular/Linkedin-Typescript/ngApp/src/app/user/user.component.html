@@ -1,0 +1,10 @@
+<div class="container">
+    <p>Date (variable): {{dateService.date | date:'long'}}</p>
+    <p>Date (method): {{dateService.getDate() | date:'long'}}</p>
+
+    <form [formGroup]="userForm">
+        <input formControlName="name">
+        <input formControlName="email">
+        <button (click)="showForm()">Submit</button>
+    </form>
+</div>
