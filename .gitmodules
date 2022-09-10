@@ -19,3 +19,6 @@
 [submodule "Exercices_JS/Jest-repos_collegues/Billed-app-EN"]
 	path = Exercices_JS/Jest-repos_collegues/Billed-app-EN
 	url = git@github.com:OpenClassrooms-Student-Center/Billed-app-EN.git
+[submodule "Exercices_JS/Angular/coffee_inheritance"]
+	path = Exercices_JS/Angular/coffee_inheritance
+	url = git@github.com:Peanuts-83/ng-coffe_inheritance.git
